@@ -1,0 +1,27 @@
+[MAPA153]
+Name=Dungeon del desierto
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+Terreno=DESIERTO
+Zona=DUNGEON
+Restringir=NO
+BackUp= 1
+lvlMinimo=25
+Pk=0
+[MAPA168]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+BackUp= 0
+lvlMinimo=25
+Pk=0
+Name=Dungeon Desert
+MusicNum=5
+Terreno=DESIERTO
+Zona=DUNGEON
+Restringir=NO

@@ -1,0 +1,40 @@
+[MAPA43]
+Name=Tierras Devastadas
+MusicNum=0
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=No
+BackUp= 1
+Pk=0
+[MAPA65]
+Name=Nuevo Mapa
+MusicNum=0
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=No
+BackUp= 1
+Pk=0
+[MAPA71]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+BackUp= 0
+Pk=0
+lvlMinimo=0
+Name=Tierras Devastadas
+MusicNum=23
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=NO

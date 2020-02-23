@@ -1,0 +1,36 @@
+[MAPA1]
+Name=Mapa 2
+MusicNum=0
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=No
+BackUp= 1
+Pk=0
+[MAPA 2]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+BackUp= 1
+Pk=0
+Name=Mapa 2
+Terreno=BOSQUE
+Zona=CAMPO
+[MAPA2]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+BackUp= 1
+Pk=0
+Name=Afueras de Ramx
+RoboNpcsPermitido=0
+Terreno=BOSQUE
+Zona=CAMPO
+MusicNum=3
+Restringir=NO
+lvlMinimo=0
