@@ -1,0 +1,8 @@
+- Agregar que no se pudo conectar en el crear cuenta <bug>
+- Posible bug en creacion de items de herrero y carpintero <bug>
+- Programar flechitas de las quest <bug>
+- Deathmatch <idea>
+- Inteligencia Artificial <idea>
+- Retos 1vs1 y 2vs2 <idea>
+- Items con Luz <idea>
+- Susurro a larga distancia <idea>
