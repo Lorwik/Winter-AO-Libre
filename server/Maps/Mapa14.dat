@@ -1,0 +1,33 @@
+[MAPA 9]
+Name=Mapa 14
+MusicNum=0
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=No
+BackUp= 1
+Pk=0
+[MAPA 14]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+BackUp= 0
+Pk=0
+[MAPA14]
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+BackUp= 1
+Pk=0
+Name=Rio Thorkis
+RoboNpcsPermitido=0
+MusicNum=3
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=NO
+lvlMinimo=0
