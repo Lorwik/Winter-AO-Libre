@@ -1,0 +1,140 @@
+[INIT]
+NumQuests=8
+
+[QUEST1]
+Nombre=El lobo Feroz
+Desc=Se han encontrado multiples cadaveres por los alrededores. Se ha hecho un llamado a la comunidad para intentar solucionar este problema. Debes matar 20 Lobos y conseguir 20 Pieles de Lobo.
+RequiredLevel=1
+
+RequiredOBJs=1
+RequiredOBJ1=414-15
+
+RequiredNPCs=1
+RequiredNPC1=501-15
+
+RewardGLD=1200
+RewardEXP=10000
+
+RewardOBJs=0
+
+[QUEST2]
+Nombre=Una gran aventura
+Desc=Un simpático personaje de la ciudad de Ramx, de nombre Iswood, deberas de conseguir 10 Pieles de Lobo y 10 Pieles de Oso pardo.
+RequiredLevel=6
+
+RequiredOBJs=2
+RequiredOBJ1=414-10
+RequiredOBJ2=415-10
+
+RewardEXP=5200
+
+RewardOBJs=1
+RewardOBJ1=238-1
+
+[QUEST3]
+Nombre=El poder de los No Muertos
+Desc=Los habitantes de Ramx estan preocupados por el gran numero de No Muertos que hay por los alrededores.
+RequiredLevel=10
+
+RequiredOBJs=1
+RequiredOBJ1=1161-10
+
+RequiredNPCs=1
+RequiredNPC1=503-10
+
+RewardGLD=4000
+RewardEXP=11150
+
+RewardOBJs=1
+RewardOBJ1=404-1
+
+[QUEST4]
+Nombre=El poder de la hermandad
+Desc=Para inscribir tu hermandad debes de poseer el anillo de la hermandad, dicho anillo se forja con la esencia de los 3 titanes. Ve con tus hermanos a Dungeon Desert, Dungeon Raider y Dungeon Crystal a dar caza a los titanes y obtener su esencia.
+RequiredLevel=40
+
+RequiredOBJs=3
+RequiredOBJ1=409-1
+RequiredOBJ2=411-1
+RequiredOBJ3=412-1
+
+RequiredNPCs=3
+RequiredNPC1=20-1
+RequiredNPC2=29-1
+RequiredNPC3=30-1
+
+RewardGLD=0
+RewardEXP=0
+
+RewardOBJs=1
+RewardOBJ1=1163-1
+
+[QUEST5]
+Nombre=Cazarecompensas
+Desc=Asique eres un aventurero... en estas zonas se habla mucho sobre un Yeti, hasta ofrecen una recompensa por atraparlo. Tal vez tengas suerte.
+RequiredLevel=37
+
+RequiredOBJs=1
+RequiredOBJ1=1197-1
+
+RequiredNPCs=1
+RequiredNPC1=116-1
+
+RewardGLD=400000
+RewardEXP=92050
+
+RewardOBJs=0
+RewardOBJ1=0
+
+[QUEST6]
+Nombre=Mata Dragones
+Desc=Dragones... la encarnación de la sabiduría... matar a uno de ellos no solo te dará acceso a sus riquezas, sino también, el orgullo de haber matado a la criatura más astuta.
+RequiredLevel=45
+
+RequiredOBJs=1
+RequiredOBJ1=1198-1
+
+RequiredNPCs=1
+RequiredNPC1=542-1
+
+RewardGLD=700000
+RewardEXP=856005
+
+RewardOBJs=0
+RewardOBJ1=0
+
+[QUEST7]
+Nombre=¡Momias!
+Desc=Aventurero, visita la antigua piramide, al norte del desierto y elimina las momias!
+RequiredLevel=20
+
+RequiredOBJs=1
+RequiredOBJ1=1196-1
+
+RequiredNPCs=3
+RequiredNPC1=912-5
+RequiredNPC2=914-5
+RequiredNPC3=913-1
+
+RewardGLD=10000
+RewardEXP=10000
+
+RewardOBJs=1
+RewardOBJ1=952
+
+[QUEST8]
+Nombre=Medusas
+Desc=El numero de medusas aumento considerablemente ¡Debemos de hacer algo! Traeme sus almas
+RequiredLevel=12
+
+RequiredOBJs=1
+RequiredOBJ1=407-10
+
+RequiredNPCs=1
+RequiredNPC1=553-10
+
+RewardGLD=700000
+RewardEXP=600000
+
+RewardOBJs=0
+RewardOBJ1=0

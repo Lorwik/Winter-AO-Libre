@@ -1,0 +1,65 @@
+[INIT]
+NumObjs=21
+
+[OBJ1] 'Preclitus
+Index=1148
+
+[OBJ2] 'Preclitus Azul
+Index=1149
+
+[OBJ3] 'Montura de Dragón Negro
+Index=1174
+
+[OBJ4] 'Montura de Dragón Dorado
+Index=1175
+
+[OBJ5] 'Montura de Dragon Rojo
+Index=1176
+
+[OBJ6] 'Somrero de Mago (+rm)
+Index=1137
+
+[OBJ7] 'Casco Alethril
+Index=1141
+
+[OBJ8] 'Casco de Astas
+Index=1139
+
+[OBJ9] 'Casco Alado
+Index=1145
+
+[OBJ10] 'Gafas
+Index=1112
+
+[OBJ11] 'Armadura Logouth
+Index=1106
+
+[OBJ12] 'Armadura Logouth (Bajos)
+Index=1191
+
+[OBJ13] 'Tunica de Dragon
+Index=1116
+
+[OBJ14] 'Tunica de Dragon (Bajos)
+Index=1115
+
+[OBJ15] 'Tunica de Akatsuki
+Index=1160
+
+[OBJ16] 'Arco Argentum
+Index=854
+
+[OBJ17] 'Espada Argentum
+Index=856
+
+[OBJ18] 'Vara del Mago Legendario
+Index=1183
+
+[OBJ19] 'Daga Demoniaca
+Index=1193
+
+[OBJ20] 'Pendiente del Sacrificio
+Index=1190
+
+[OBJ21] 'Anillo de la hermandad
+Index=1163
