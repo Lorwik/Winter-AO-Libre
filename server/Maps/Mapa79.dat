@@ -1,0 +1,25 @@
+[MAPA74]
+Name=Costas de Belleuve
+MusicNum=0
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+Terreno=BOSQUE
+Zona=CAMPO
+Restringir=No
+BackUp= 1
+Pk=0
+[MAPA79]
+Name=Costas de Belleuve
+MagiaSinefecto=0
+InviSinEfecto=0
+ResuSinEfecto=0
+NoEncriptarMP=0
+RoboNpcsPermitido=0
+Terreno=BOSQUE
+Zona=CAMPO
+BackUp= 1
+Pk=0
+lvlMinimo=0
