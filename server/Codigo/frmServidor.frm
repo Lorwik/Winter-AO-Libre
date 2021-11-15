@@ -2,13 +2,13 @@ VERSION 5.00
 Begin VB.Form frmServidor 
    BackColor       =   &H00C0C0C0&
    Caption         =   "Servidor"
-   ClientHeight    =   6600
+   ClientHeight    =   6540
    ClientLeft      =   60
    ClientTop       =   345
    ClientWidth     =   4845
    ControlBox      =   0   'False
    LinkTopic       =   "Form1"
-   ScaleHeight     =   440
+   ScaleHeight     =   436
    ScaleMode       =   3  'Pixel
    ScaleWidth      =   323
    StartUpPosition =   3  'Windows Default
@@ -24,38 +24,38 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   2040
-      TabIndex        =   25
-      Top             =   6300
+      Left            =   1920
+      TabIndex        =   28
+      Top             =   6180
       Width           =   1455
    End
    Begin VB.PictureBox picFuera 
       Appearance      =   0  'Flat
       BackColor       =   &H00000000&
       ForeColor       =   &H80000008&
-      Height          =   4455
+      Height          =   4335
       Left            =   120
-      ScaleHeight     =   295
+      ScaleHeight     =   287
       ScaleMode       =   3  'Pixel
       ScaleWidth      =   304
       TabIndex        =   6
       Top             =   120
       Width           =   4590
       Begin VB.VScrollBar VS1 
-         Height          =   4455
+         Height          =   4335
          LargeChange     =   50
          Left            =   4320
          SmallChange     =   17
-         TabIndex        =   24
+         TabIndex        =   26
          Top             =   0
          Width           =   255
       End
       Begin VB.PictureBox picCont 
          BackColor       =   &H00C0C0C0&
          BorderStyle     =   0  'None
-         Height          =   4815
+         Height          =   5055
          Left            =   0
-         ScaleHeight     =   321
+         ScaleHeight     =   337
          ScaleMode       =   3  'Pixel
          ScaleWidth      =   289
          TabIndex        =   7
@@ -74,8 +74,25 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   26
-            Top             =   4200
+            TabIndex        =   29
+            Top             =   4680
+            Width           =   4095
+         End
+         Begin VB.CommandButton Command24 
+            Caption         =   "Estadisticas"
+            BeginProperty Font 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   120
+            TabIndex        =   25
+            Top             =   4440
             Width           =   4095
          End
          Begin VB.CommandButton Command22 
@@ -92,7 +109,7 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   8
-            Top             =   3960
+            Top             =   4200
             Width           =   4095
          End
          Begin VB.CommandButton Command21 
@@ -109,7 +126,7 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   9
-            Top             =   3720
+            Top             =   3960
             Width           =   4095
          End
          Begin VB.CommandButton Command17 
@@ -126,6 +143,23 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   10
+            Top             =   3720
+            Width           =   4095
+         End
+         Begin VB.CommandButton Command25 
+            Caption         =   "Reload MD5s"
+            BeginProperty Font 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   120
+            TabIndex        =   27
             Top             =   3480
             Width           =   4095
          End
@@ -146,23 +180,6 @@ Begin VB.Form frmServidor
             Top             =   3240
             Width           =   4095
          End
-         Begin VB.CommandButton Command28 
-            Caption         =   "Reload Balance.dat"
-            BeginProperty Font 
-               Name            =   "Tahoma"
-               Size            =   8.25
-               Charset         =   0
-               Weight          =   700
-               Underline       =   0   'False
-               Italic          =   0   'False
-               Strikethrough   =   0   'False
-            EndProperty
-            Height          =   255
-            Left            =   120
-            TabIndex        =   27
-            Top             =   3000
-            Width           =   4095
-         End
          Begin VB.CommandButton Command14 
             Caption         =   "Update MOTD"
             BeginProperty Font 
@@ -177,7 +194,7 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   12
-            Top             =   2760
+            Top             =   3000
             Width           =   4095
          End
          Begin VB.CommandButton Command19 
@@ -194,7 +211,7 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   13
-            Top             =   2520
+            Top             =   2760
             Width           =   4095
          End
          Begin VB.CommandButton Command15 
@@ -211,6 +228,23 @@ Begin VB.Form frmServidor
             Height          =   255
             Left            =   120
             TabIndex        =   14
+            Top             =   2520
+            Width           =   4095
+         End
+         Begin VB.CommandButton Command13 
+            Caption         =   "Debug listening socket"
+            BeginProperty Font 
+               Name            =   "Tahoma"
+               Size            =   8.25
+               Charset         =   0
+               Weight          =   700
+               Underline       =   0   'False
+               Italic          =   0   'False
+               Strikethrough   =   0   'False
+            EndProperty
+            Height          =   255
+            Left            =   120
+            TabIndex        =   15
             Top             =   2280
             Width           =   4095
          End
@@ -227,7 +261,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   15
+            TabIndex        =   16
             Top             =   2040
             Width           =   4095
          End
@@ -244,7 +278,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   16
+            TabIndex        =   17
             Top             =   1800
             Width           =   4095
          End
@@ -261,7 +295,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   17
+            TabIndex        =   18
             Top             =   1560
             Width           =   4095
          End
@@ -278,7 +312,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   18
+            TabIndex        =   19
             Top             =   1320
             Width           =   4095
          End
@@ -295,7 +329,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   19
+            TabIndex        =   20
             Top             =   1080
             Width           =   4095
          End
@@ -312,7 +346,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   20
+            TabIndex        =   21
             Top             =   840
             Width           =   4095
          End
@@ -330,7 +364,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   21
+            TabIndex        =   22
             Top             =   600
             Width           =   4095
          End
@@ -347,7 +381,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   22
+            TabIndex        =   23
             Top             =   360
             Width           =   4095
          End
@@ -364,7 +398,7 @@ Begin VB.Form frmServidor
             EndProperty
             Height          =   255
             Left            =   120
-            TabIndex        =   23
+            TabIndex        =   24
             Top             =   120
             Width           =   4095
          End
@@ -382,9 +416,9 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   360
+      Left            =   240
       TabIndex        =   5
-      Top             =   5640
+      Top             =   5520
       Width           =   4095
    End
    Begin VB.CommandButton Command5 
@@ -399,9 +433,9 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   360
+      Left            =   240
       TabIndex        =   1
-      Top             =   5280
+      Top             =   5160
       Width           =   4095
    End
    Begin VB.CommandButton Command18 
@@ -416,9 +450,9 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   360
+      Left            =   240
       TabIndex        =   3
-      Top             =   5040
+      Top             =   4920
       Width           =   4095
    End
    Begin VB.CommandButton Command4 
@@ -433,18 +467,18 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   360
+      Left            =   240
       TabIndex        =   2
-      Top             =   4800
+      Top             =   4680
       Width           =   4095
    End
    Begin VB.CommandButton Command2 
       Caption         =   "OK"
       Default         =   -1  'True
       Height          =   255
-      Left            =   3600
+      Left            =   3480
       TabIndex        =   0
-      Top             =   6300
+      Top             =   6180
       Width           =   945
    End
    Begin VB.CommandButton Command20 
@@ -459,15 +493,15 @@ Begin VB.Form frmServidor
          Strikethrough   =   0   'False
       EndProperty
       Height          =   255
-      Left            =   360
+      Left            =   240
       TabIndex        =   4
-      Top             =   6300
+      Top             =   6180
       Width           =   1575
    End
    Begin VB.Shape Shape2 
       Height          =   1335
-      Left            =   240
-      Top             =   4680
+      Left            =   120
+      Top             =   4560
       Width           =   4335
    End
 End
@@ -476,34 +510,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Winter-AO 0.12.2
-'Copyright (C) 2002 Márquez Pablo Ignacio
-'
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'
-'Winter-AO is based on Baronsoft's VB6 Online RPG
-'You can contact the original creator of ORE at aaron@baronsoft.com
-'for more information about ORE please visit http://www.baronsoft.com/
-'
-'
-'You can contact me at:
-'morgolock@speedy.com.ar
-'www.geocities.com/gmorgolock
-'Calle 3 número 983 piso 7 dto A
-'La Plata - Pcia, Buenos Aires - Republica Argentina
-'Código Postal 1900
-'Pablo Ignacio Márquez
-
 Option Explicit
 
 Private Sub Command1_Click()
@@ -521,6 +527,10 @@ End Sub
 
 Private Sub Command12_Click()
 frmDebugNpc.Show
+End Sub
+
+Private Sub Command13_Click()
+frmDebugSocket.Visible = True
 End Sub
 
 Private Sub Command14_Click()
@@ -563,7 +573,9 @@ Call LoadSini
 End Sub
 
 Private Sub Command17_Click()
-    Call CargaNpcsDat
+Call DescargaNpcsDat
+Call CargaNpcsDat
+
 End Sub
 
 Private Sub Command18_Click()
@@ -626,11 +638,11 @@ Private Sub Command21_Click()
 
 If EnPausa = False Then
     EnPausa = True
-    Call SendData(SendTarget.ToAll, 0, PrepareMessagePauseToggle())
+    Call SendData(SendTarget.ToAll, 0, 0, "BKW")
     Command21.Caption = "Reanudar el servidor"
 Else
     EnPausa = False
-    Call SendData(SendTarget.ToAll, 0, PrepareMessagePauseToggle())
+    Call SendData(SendTarget.ToAll, 0, 0, "BKW")
     Command21.Caption = "Pausar el servidor"
 End If
 
@@ -661,23 +673,29 @@ If MsgBox("Esta seguro que desea hacer WorldSave, guardar pjs y cerrar ?", vbYes
 End If
 End Sub
 
+Private Sub Command24_Click()
+frmEstadisticas.Show
+
+End Sub
+
+Private Sub Command25_Click()
+Call MD5sCarga
+
+End Sub
+
 Private Sub Command26_Click()
 #If UsarQueSocket = 1 Then
     'Cierra el socket de escucha
     If SockListen >= 0 Then Call apiclosesocket(SockListen)
     
     'Inicia el socket de escucha
-    SockListen = ListenForConnect(Puerto, hWndMsg, "")
+    SockListen = ListenFORCOnnect(Puerto, hWndMsg, "")
 #End If
 End Sub
 
 Private Sub Command27_Click()
 frmUserList.Show
 
-End Sub
-
-Private Sub Command28_Click()
-    Call LoadBalance
 End Sub
 
 Private Sub Command3_Click()
@@ -735,15 +753,15 @@ Next
 LastUser = 0
 NumUsers = 0
 
-Call FreeNPCs
-Call FreeCharIndexes
+ReDim Npclist(1 To MAXNPCS) As npc 'NPCS
+ReDim CharList(1 To MAXCHARS) As Integer
 
 Call LoadSini
 Call CargarBackUp
 Call LoadOBJData
 
 #If UsarQueSocket = 1 Then
-SockListen = ListenForConnect(Puerto, hWndMsg, "")
+SockListen = ListenFORCOnnect(Puerto, hWndMsg, "")
 
 #ElseIf UsarQueSocket = 0 Then
 frmMain.Socket1.AddressFamily = AF_INET
@@ -806,14 +824,14 @@ If picCont.Height > picFuera.ScaleHeight Then
 Else
     VS1.max = 0
 End If
-picCont.Top = -VS1.Value
+picCont.Top = -VS1.value
 
 End Sub
 
 Private Sub VS1_Change()
-picCont.Top = -VS1.Value
+picCont.Top = -VS1.value
 End Sub
 
 Private Sub VS1_Scroll()
-picCont.Top = -VS1.Value
+picCont.Top = -VS1.value
 End Sub

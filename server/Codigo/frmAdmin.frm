@@ -90,7 +90,7 @@ Dim tIndex As Long
 
 tIndex = NameIndex(cboPjs.Text)
 If tIndex > 0 Then
-    Call SendData(SendTarget.ToAll, 0, PrepareMessageConsoleMsg("Servidor> " & UserList(tIndex).name & " ha sido hechado. ", FontTypeNames.FONTTYPE_SERVER))
+    Call SendData(SendTarget.ToAll, 0, 0, "||Servidor> " & UserList(tIndex).name & " ha sido hechado. " & FONTTYPE_SERVER)
     Call CloseSocket(tIndex)
 End If
 
@@ -104,7 +104,7 @@ With cboPjs
     
     For LoopC = 1 To LastUser
         If UserList(LoopC).flags.UserLogged And UserList(LoopC).ConnID >= 0 And UserList(LoopC).ConnIDValida Then
-            If UserList(LoopC).flags.Privilegios And PlayerType.User Then
+            If UserList(LoopC).flags.Privilegios = PlayerType.User Then
                 .AddItem UserList(LoopC).name
                 .ItemData(.NewIndex) = LoopC
             End If
@@ -119,13 +119,18 @@ Call EcharPjsNoPrivilegiados
 
 End Sub
 
+Private Sub Label1_Click()
+Call ActualizaPjInfo
+
+End Sub
+
 Private Sub ActualizaPjInfo()
 Dim tIndex As Long
 
 tIndex = NameIndex(cboPjs.Text)
 If tIndex > 0 Then
     With UserList(tIndex)
-        Text1.Text = .outgoingData.length & " elementos en cola." & vbCrLf
+        Text1.Text = .ColaSalida.Count & " elementos en cola." & vbCrLf
     End With
 End If
 

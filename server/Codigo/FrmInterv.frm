@@ -1,22 +1,14 @@
 VERSION 5.00
 Begin VB.Form FrmInterv 
    Caption         =   "Intervalos"
-   ClientHeight    =   4920
+   ClientHeight    =   4710
    ClientLeft      =   60
    ClientTop       =   345
-   ClientWidth     =   7650
+   ClientWidth     =   7695
    LinkTopic       =   "Form1"
-   ScaleHeight     =   4920
-   ScaleWidth      =   7650
+   ScaleHeight     =   4710
+   ScaleWidth      =   7695
    StartUpPosition =   3  'Windows Default
-   Begin VB.CommandButton Command3 
-      Caption         =   "Re - LoadAntiCheat"
-      Height          =   195
-      Left            =   1680
-      TabIndex        =   55
-      Top             =   4680
-      Width           =   3855
-   End
    Begin VB.CommandButton Command2 
       Caption         =   "Guardar Intervalos"
       BeginProperty Font 
@@ -64,7 +56,7 @@ Begin VB.Form FrmInterv
       EndProperty
       Height          =   2055
       Left            =   2880
-      TabIndex        =   49
+      TabIndex        =   47
       Top             =   2160
       Width           =   1695
       Begin VB.Frame Frame4 
@@ -80,13 +72,13 @@ Begin VB.Form FrmInterv
          EndProperty
          Height          =   1575
          Left            =   150
-         TabIndex        =   50
+         TabIndex        =   48
          Top             =   240
          Width           =   1365
          Begin VB.TextBox txtAI 
             Height          =   285
             Left            =   150
-            TabIndex        =   52
+            TabIndex        =   50
             Text            =   "0"
             Top             =   1080
             Width           =   1050
@@ -94,7 +86,7 @@ Begin VB.Form FrmInterv
          Begin VB.TextBox txtNPCPuedeAtacar 
             Height          =   285
             Left            =   135
-            TabIndex        =   51
+            TabIndex        =   49
             Text            =   "0"
             Top             =   510
             Width           =   1050
@@ -104,7 +96,7 @@ Begin VB.Form FrmInterv
             Caption         =   "AI"
             Height          =   195
             Left            =   165
-            TabIndex        =   54
+            TabIndex        =   52
             Top             =   840
             Width           =   150
          End
@@ -113,7 +105,7 @@ Begin VB.Form FrmInterv
             Caption         =   "Puede atacar"
             Height          =   195
             Left            =   150
-            TabIndex        =   53
+            TabIndex        =   51
             Top             =   255
             Width           =   960
          End
@@ -147,25 +139,17 @@ Begin VB.Form FrmInterv
             Strikethrough   =   0   'False
          EndProperty
          Height          =   1650
-         Left            =   120
+         Left            =   165
          TabIndex        =   40
-         Top             =   240
-         Width           =   2625
+         Top             =   300
+         Width           =   2580
          Begin VB.TextBox txtCmdExec 
             Height          =   285
-            Left            =   1320
-            TabIndex        =   44
-            Text            =   "0"
-            Top             =   1110
-            Width           =   915
-         End
-         Begin VB.TextBox txtIntervaloPerdidaStaminaLluvia 
-            Height          =   300
             Left            =   1320
             TabIndex        =   43
             Text            =   "0"
             Top             =   480
-            Width           =   930
+            Width           =   915
          End
          Begin VB.TextBox txtIntervaloWAVFX 
             Height          =   300
@@ -188,25 +172,16 @@ Begin VB.Form FrmInterv
             Caption         =   "TimerExec"
             Height          =   195
             Left            =   1320
-            TabIndex        =   48
-            Top             =   840
+            TabIndex        =   46
+            Top             =   240
             Width           =   750
-         End
-         Begin VB.Label Label19 
-            AutoSize        =   -1  'True
-            Caption         =   "Stamina Lluvia"
-            Height          =   195
-            Left            =   1350
-            TabIndex        =   47
-            Top             =   270
-            Width           =   1035
          End
          Begin VB.Label Label13 
             AutoSize        =   -1  'True
             Caption         =   "FxS"
             Height          =   195
             Left            =   180
-            TabIndex        =   46
+            TabIndex        =   45
             Top             =   270
             Width           =   270
          End
@@ -215,7 +190,7 @@ Begin VB.Form FrmInterv
             Caption         =   "Frio"
             Height          =   195
             Left            =   195
-            TabIndex        =   45
+            TabIndex        =   44
             Top             =   810
             Width           =   255
          End
@@ -644,6 +619,8 @@ frmMain.npcataca.Interval = val(txtNPCPuedeAtacar.Text)
 frmMain.TIMER_AI.Interval = val(txtAI.Text)
 IntervaloUserPuedeTrabajar = val(txtTrabajo.Text)
 IntervaloUserPuedeAtacar = val(txtPuedeAtacar.Text)
+frmMain.CmdExec.Interval = val(txtCmdExec.Text)
+
 
 End Sub
 
@@ -679,17 +656,13 @@ Call WriteVar(IniPath & "Server.ini", "INTERVALOS", "IntervaloNpcAI", frmMain.TI
 Call WriteVar(IniPath & "Server.ini", "INTERVALOS", "IntervaloNpcPuedeAtacar", frmMain.npcataca.Interval)
 Call WriteVar(IniPath & "Server.ini", "INTERVALOS", "IntervaloTrabajo", str(IntervaloUserPuedeTrabajar))
 Call WriteVar(IniPath & "Server.ini", "INTERVALOS", "IntervaloUserPuedeAtacar", str(IntervaloUserPuedeAtacar))
-
+Call WriteVar(IniPath & "Server.ini", "INTERVALOS", "IntervaloTimerExec", frmMain.CmdExec.Interval)
 
 MsgBox "Los intervalos se han guardado sin problemas"
 
 Exit Sub
 Err:
     MsgBox "Error al intentar grabar los intervalos"
-End Sub
-
-Private Sub Command3_Click()
-Call LoadAntiCheat
 End Sub
 
 Private Sub ok_Click()

@@ -1,12 +1,11 @@
 VERSION 5.00
 Begin VB.Form frmUserRequest 
-   BorderStyle     =   0  'None
+   BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Peticion"
-   ClientHeight    =   3150
-   ClientLeft      =   -60
-   ClientTop       =   -105
-   ClientWidth     =   5010
-   ClipControls    =   0   'False
+   ClientHeight    =   2160
+   ClientLeft      =   45
+   ClientTop       =   210
+   ClientWidth     =   4650
    ControlBox      =   0   'False
    BeginProperty Font 
       Name            =   "Tahoma"
@@ -18,27 +17,27 @@ Begin VB.Form frmUserRequest
       Strikethrough   =   0   'False
    EndProperty
    LinkTopic       =   "Form1"
-   ScaleHeight     =   210
-   ScaleMode       =   3  'Pixel
-   ScaleWidth      =   334
+   MaxButton       =   0   'False
+   MinButton       =   0   'False
+   ScaleHeight     =   2160
+   ScaleWidth      =   4650
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  'CenterOwner
-   Begin VB.TextBox Text1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   1575
-      Left            =   315
-      MultiLine       =   -1  'True
-      TabIndex        =   0
-      Top             =   765
+   Begin VB.CommandButton Command1 
+      Caption         =   "Cerrar"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   1
+      Top             =   1800
       Width           =   4335
    End
-   Begin VB.Image Command1 
-      Height          =   255
-      Left            =   1800
-      Top             =   2520
-      Width           =   1335
+   Begin VB.TextBox Text1 
+      Height          =   1575
+      Left            =   120
+      MultiLine       =   -1  'True
+      TabIndex        =   0
+      Top             =   120
+      Width           =   4335
    End
 End
 Attribute VB_Name = "frmUserRequest"
@@ -47,18 +46,10 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-
 Private Sub Command1_Click()
 Unload Me
 End Sub
-
 Public Sub recievePeticion(ByVal p As String)
-
-Text1 = Replace$(p, "º", vbCrLf)
+text1 = Replace(p, "º", vbCrLf)
 Me.Show vbModeless, frmMain
-
-End Sub
-
-Private Sub Form_Load()
-Me.Picture = General_Load_Picture_From_Resource("88.gif")
 End Sub

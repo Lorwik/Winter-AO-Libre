@@ -1,0 +1,3 @@
+Línea 31: la propiedad MouseIcon de Command1 tenía una referencia a archivo no válida.
+Línea 50: la propiedad MouseIcon de cmdBorrar tenía una referencia a archivo no válida.
+Línea 92: la propiedad Caption de lblWhat debe ser una cadena encerrada entre comillas

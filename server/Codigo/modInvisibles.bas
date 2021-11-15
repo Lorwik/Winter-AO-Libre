@@ -10,28 +10,33 @@ Option Explicit
 Public Sub PonerInvisible(ByVal UserIndex As Integer, ByVal estado As Boolean)
 #If MODO_INVISIBILIDAD = 0 Then
 
-UserList(UserIndex).flags.invisible = IIf(estado, 1, 0)
+UserList(UserIndex).flags.Invisible = IIf(estado, 1, 0)
 UserList(UserIndex).flags.Oculto = IIf(estado, 1, 0)
 UserList(UserIndex).Counters.Invisibilidad = 0
-
-Call SetInvisible(UserIndex, UserList(UserIndex).Char.CharIndex, Not estado)
-'Call SendData(SendTarget.ToPCArea, UserIndex, PrepareMessageSetInvisible(UserList(UserIndex).Char.CharIndex, Not estado))
-
+#If SeguridadAlkon Then
+    If EncriptarProtocolosCriticos Then
+        Call SendCryptedData(SendTarget.ToMap, 0, UserList(UserIndex).Pos.Map, "NOVER" & UserList(UserIndex).Char.CharIndex & "," & IIf(estado, 1, 0))
+    Else
+#End If
+        Call SendData(SendTarget.ToMap, 0, UserList(UserIndex).Pos.Map, "NOVER" & UserList(UserIndex).Char.CharIndex & "," & IIf(estado, 1, 0))
+#If SeguridadAlkon Then
+    End If
+#End If
 
 #Else
 
 Dim EstadoActual As Boolean
 
 ' Está invisible ?
-EstadoActual = (UserList(UserIndex).flags.invisible = 1)
+EstadoActual = (UserList(UserIndex).flags.Invisible = 1)
 
 'If EstadoActual <> Modo Then
     If Modo = True Then
         ' Cuando se hace INVISIBLE se les envia a los
         ' clientes un Borrar Char
-        UserList(UserIndex).flags.invisible = 1
+        UserList(UserIndex).flags.Invisible = 1
 '        'Call SendData(SendTarget.ToMap, 0, UserList(UserIndex).Pos.Map, "NOVER" & UserList(UserIndex).Char.CharIndex & ",1")
-        Call SendData(SendTarget.toMap, UserList(UserIndex).Pos.map, PrepareMessageCharacterRemove(UserList(UserIndex).Char.CharIndex))
+        Call SendData(SendTarget.ToMap, 0, UserList(UserIndex).Pos.Map, "BP" & UserList(UserIndex).Char.CharIndex)
     Else
         
     End If

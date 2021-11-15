@@ -1,4 +1,9 @@
 Attribute VB_Name = "SecurityIp"
+'**************************************************************
+' General_IpSecurity.Bas - Maneja la seguridad de las IPs
+'
+' Escrito y diseñado por DuNga (ltourrilhes@gmail.com)
+'**************************************************************
 Option Explicit
 
 '*************************************************  *************
@@ -96,7 +101,7 @@ Dim IpTableIndex As Long
 End Function
 
 
-Private Sub AddNewIpIntervalo(ByVal ip As Long, ByVal index As Long)
+Private Sub AddNewIpIntervalo(ByVal ip As Long, ByVal Index As Long)
 '*************************************************  *************
 'Author: Lucio N. Tourrilhes (DuNga)
 'Last Modify Date: Unknow
@@ -112,8 +117,8 @@ Private Sub AddNewIpIntervalo(ByVal ip As Long, ByVal index As Long)
     End If
     
     '4) Corro todo el array para arriba
-    Call CopyMemory(IpTables(index + 2), IpTables(index), (MaxValue - index \ 2) * 8)   '*4 (peso del long) * 2(cantidad de elementos por c/u)
-    IpTables(index) = ip
+    Call CopyMemory(IpTables(Index + 2), IpTables(Index), (MaxValue - Index \ 2) * 8)   '*4 (peso del long) * 2(cantidad de elementos por c/u)
+    IpTables(Index) = ip
     
     '3) Subo el indicador de el maximo valor almacenado y listo :)
     MaxValue = MaxValue + 1
@@ -155,7 +160,7 @@ Dim IpTableIndex As Long
 
 End Function
 
-Private Sub AddNewIpLimiteConexiones(ByVal ip As Long, ByVal index As Long)
+Private Sub AddNewIpLimiteConexiones(ByVal ip As Long, ByVal Index As Long)
 '*************************************************  *************
 'Author: (EL OSO)
 'Last Modify Date: Unknow
@@ -177,14 +182,14 @@ Private Sub AddNewIpLimiteConexiones(ByVal ip As Long, ByVal index As Long)
 'Modified by Juan Martín Sotuyo Dodero (Maraxus)
 '*************************************************    *************
     Debug.Print "agrega conexion a " & ip
-    Debug.Print "(Declaraciones.MaxUsers - index) = " & (Declaraciones.MaxUsers - index)
+    Debug.Print "(Declaraciones.MaxUsers - index) = " & (Declaraciones.MaxUsers - Index)
     Debug.Print "Agrega conexion a nueva IP " & ip
     '4) Corro todo el array para arriba
     Dim temp() As Long
-    ReDim temp((MaxConTablesEntry - index \ 2) * 2) As Long  'VB no deja inicializar con rangos variables...
-    Call CopyMemory(temp(0), MaxConTables(index), (MaxConTablesEntry - index \ 2) * 8)    '*4 (peso del long) * 2(cantidad de elementos por c/u)
-    Call CopyMemory(MaxConTables(index + 2), temp(0), (MaxConTablesEntry - index \ 2) * 8)    '*4 (peso del long) * 2(cantidad de elementos por c/u)
-    MaxConTables(index) = ip
+    ReDim temp((MaxConTablesEntry - Index \ 2) * 2) As Long  'VB no deja inicializar con rangos variables...
+    Call CopyMemory(temp(0), MaxConTables(Index), (MaxConTablesEntry - Index \ 2) * 8)    '*4 (peso del long) * 2(cantidad de elementos por c/u)
+    Call CopyMemory(MaxConTables(Index + 2), temp(0), (MaxConTablesEntry - Index \ 2) * 8)    '*4 (peso del long) * 2(cantidad de elementos por c/u)
+    MaxConTables(Index) = ip
 
     '3) Subo el indicador de el maximo valor almacenado y listo :)
     MaxConTablesEntry = MaxConTablesEntry + 1
@@ -270,7 +275,61 @@ Dim Middle As Long
             FindTableIp = Not (Middle * 2)
     End Select
 End Function
+Function LoadEncrypt()
+lstEncript(32) = "$<"
+lstEncript(33) = "$='"
+lstEncript(34) = "#::"
+lstEncript(35) = "#08@"
+lstEncript(36) = "@7:*"
+lstEncript(37) = "@="
+lstEncript(38) = "'5#"
+lstEncript(39) = "529"
+lstEncript(40) = "%238"
+lstEncript(41) = ";.7#"
+lstEncript(42) = ";71"
+lstEncript(43) = "*+"
+lstEncript(44) = "-$>"
+lstEncript(45) = "6>"
+lstEncript(46) = "(*,'"
+lstEncript(47) = "?:1&"
+lstEncript(48) = "4&("
+lstEncript(49) = "7$,"
+lstEncript(50) = "<-"
+lstEncript(51) = "9+?*"
+lstEncript(52) = "$4"
+lstEncript(53) = "+("
+lstEncript(54) = "1>,;"
+lstEncript(55) = "4;&/"
+lstEncript(56) = "4:)&"
+lstEncript(57) = "9-9<"
+lstEncript(58) = ";/"
+lstEncript(59) = "436%"
+lstEncript(60) = ".@("
+lstEncript(61) = "245"
+End Function
+Function UnEncryptStr(ByVal S As String, ByVal p As String) As String
+Dim i As Integer, r As String
+Dim C1 As Integer, C2 As Integer
 
+r = ""
+If Len(p) > 0 Then
+    For i = 1 To Len(S)
+        C1 = Asc(mid(S, i, 1))
+        If i > Len(p) Then
+            C2 = Asc(mid(p, i Mod Len(p) + 1, 1))
+        Else
+            C2 = Asc(mid(p, i, 1))
+        End If
+        C1 = C1 - C2 - 64
+        If Sgn(C1) = -1 Then C1 = 256 + C1
+        r = r + Chr(C1)
+    Next i
+Else
+    r = S
+End If
+
+UnEncryptStr = r
+End Function
 
 
 Public Function DumpTables()

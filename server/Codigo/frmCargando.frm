@@ -1,5 +1,5 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
+Object = "{6B7E6392-850A-101B-AFC0-4210102A8DA7}#1.3#0"; "COMCTL32.OCX"
 Begin VB.Form frmCargando 
    BackColor       =   &H00C0C0C0&
    BorderStyle     =   0  'None
@@ -17,16 +17,17 @@ Begin VB.Form frmCargando
    ScaleWidth      =   430
    ShowInTaskbar   =   0   'False
    StartUpPosition =   2  'CenterScreen
-   Begin MSComctlLib.ProgressBar cargar 
+   Begin ComctlLib.ProgressBar cargar 
       Height          =   255
       Left            =   120
       TabIndex        =   3
       Top             =   2760
-      Width           =   4695
-      _ExtentX        =   8281
+      Width           =   3855
+      _ExtentX        =   6800
       _ExtentY        =   450
-      _Version        =   393216
-      Appearance      =   0
+      _Version        =   327682
+      Appearance      =   1
+      Min             =   1e-4
    End
    Begin VB.PictureBox Picture1 
       BorderStyle     =   0  'None
@@ -42,6 +43,15 @@ Begin VB.Form frmCargando
          AutoSize        =   -1  'True
          BackStyle       =   0  'Transparent
          Caption         =   "Cargando, por favor espere..."
+         BeginProperty Font 
+            Name            =   "Bookman Old Style"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   300
+            Underline       =   0   'False
+            Italic          =   0   'False
+            Strikethrough   =   0   'False
+         EndProperty
          ForeColor       =   &H000000FF&
          Height          =   225
          Index           =   3
@@ -79,34 +89,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'Winter-AO 0.12.2
-'Copyright (C) 2002 Márquez Pablo Ignacio
-'
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'
-'Winter-AO is based on Baronsoft's VB6 Online RPG
-'You can contact the original creator of ORE at aaron@baronsoft.com
-'for more information about ORE please visit http://www.baronsoft.com/
-'
-'
-'You can contact me at:
-'morgolock@speedy.com.ar
-'www.geocities.com/gmorgolock
-'Calle 3 número 983 piso 7 dto A
-'La Plata - Pcia, Buenos Aires - Republica Argentina
-'Código Postal 1900
-'Pablo Ignacio Márquez
-
 Option Explicit
 
 Private Sub Form_Load()

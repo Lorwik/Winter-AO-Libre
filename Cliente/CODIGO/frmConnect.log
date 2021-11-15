@@ -1,0 +1,4 @@
+Línea 140: la clase MSWinsockLib.Winsock del control Verificador no era una clase de control cargada.
+Línea 143: el nombre de la propiedad _ExtentX de Verificador no es válido.
+Línea 144: el nombre de la propiedad _ExtentY de Verificador no es válido.
+Línea 145: el nombre de la propiedad _Version de Verificador no es válido.

@@ -1,4 +1,0 @@
-PathHelper creado 100% por Lorwik. Esta utilidad tiene como fin ayudar a los usuarios con posibles errores de
-parcheo.
-
-www.lwk-foros.net

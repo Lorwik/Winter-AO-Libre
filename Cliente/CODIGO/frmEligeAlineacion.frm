@@ -2,18 +2,37 @@ VERSION 5.00
 Begin VB.Form frmEligeAlineacion 
    BackColor       =   &H00000000&
    BorderStyle     =   1  'Fixed Single
-   ClientHeight    =   5250
+   ClientHeight    =   5895
    ClientLeft      =   15
    ClientTop       =   15
-   ClientWidth     =   6705
-   ClipControls    =   0   'False
+   ClientWidth     =   6930
    ControlBox      =   0   'False
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5250
-   ScaleWidth      =   6705
+   ScaleHeight     =   5895
+   ScaleWidth      =   6930
    StartUpPosition =   1  'CenterOwner
+   Begin VB.Label Label1 
+      Alignment       =   2  'Center
+      BackStyle       =   0  'Transparent
+      Caption         =   "Elige una Alienación"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   24
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00FFFFFF&
+      Height          =   615
+      Left            =   240
+      TabIndex        =   11
+      Top             =   0
+      Width           =   6255
+   End
    Begin VB.Label lblSalir 
       Alignment       =   2  'Center
       BorderStyle     =   1  'Fixed Single
@@ -30,7 +49,7 @@ Begin VB.Form frmEligeAlineacion
       Height          =   285
       Left            =   5400
       TabIndex        =   10
-      Top             =   4860
+      Top             =   5460
       Width           =   915
    End
    Begin VB.Label lblDescripcion 
@@ -39,10 +58,10 @@ Begin VB.Form frmEligeAlineacion
       Caption         =   $"frmEligeAlineacion.frx":0000
       ForeColor       =   &H00FFFFFF&
       Height          =   645
-      Index           =   1
+      Index           =   4
       Left            =   1095
       TabIndex        =   9
-      Top             =   4140
+      Top             =   4740
       Width           =   5505
    End
    Begin VB.Label lblDescripcion 
@@ -51,10 +70,10 @@ Begin VB.Form frmEligeAlineacion
       Caption         =   $"frmEligeAlineacion.frx":00D5
       ForeColor       =   &H00FFFFFF&
       Height          =   645
-      Index           =   5
+      Index           =   3
       Left            =   1095
       TabIndex        =   8
-      Top             =   3240
+      Top             =   3840
       Width           =   5505
    End
    Begin VB.Label lblDescripcion 
@@ -66,7 +85,7 @@ Begin VB.Form frmEligeAlineacion
       Index           =   2
       Left            =   1095
       TabIndex        =   7
-      Top             =   2295
+      Top             =   2895
       Width           =   5505
    End
    Begin VB.Label lblDescripcion 
@@ -75,10 +94,10 @@ Begin VB.Form frmEligeAlineacion
       Caption         =   $"frmEligeAlineacion.frx":025D
       ForeColor       =   &H00FFFFFF&
       Height          =   645
-      Index           =   4
+      Index           =   1
       Left            =   1095
       TabIndex        =   6
-      Top             =   1350
+      Top             =   1950
       Width           =   5505
    End
    Begin VB.Label lblDescripcion 
@@ -90,7 +109,7 @@ Begin VB.Form frmEligeAlineacion
       Index           =   0
       Left            =   1095
       TabIndex        =   5
-      Top             =   270
+      Top             =   870
       Width           =   5505
    End
    Begin VB.Label lblNombre 
@@ -107,10 +126,10 @@ Begin VB.Form frmEligeAlineacion
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   240
-      Index           =   1
+      Index           =   4
       Left            =   1005
       TabIndex        =   4
-      Top             =   3915
+      Top             =   4515
       Width           =   1680
    End
    Begin VB.Label lblNombre 
@@ -127,10 +146,10 @@ Begin VB.Form frmEligeAlineacion
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   240
-      Index           =   5
+      Index           =   3
       Left            =   1005
       TabIndex        =   3
-      Top             =   3015
+      Top             =   3615
       Width           =   1680
    End
    Begin VB.Label lblNombre 
@@ -150,7 +169,7 @@ Begin VB.Form frmEligeAlineacion
       Index           =   2
       Left            =   1005
       TabIndex        =   2
-      Top             =   2070
+      Top             =   2670
       Width           =   1635
    End
    Begin VB.Label lblNombre 
@@ -167,10 +186,10 @@ Begin VB.Form frmEligeAlineacion
       EndProperty
       ForeColor       =   &H00FFFFFF&
       Height          =   240
-      Index           =   4
+      Index           =   1
       Left            =   1005
       TabIndex        =   1
-      Top             =   1125
+      Top             =   1725
       Width           =   1455
    End
    Begin VB.Label lblNombre 
@@ -188,9 +207,9 @@ Begin VB.Form frmEligeAlineacion
       ForeColor       =   &H00FFFFFF&
       Height          =   240
       Index           =   0
-      Left            =   1000
+      Left            =   1005
       TabIndex        =   0
-      Top             =   45
+      Top             =   645
       Width           =   1455
    End
 End
@@ -199,73 +218,62 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'**************************************************************
-' frmEligeAlineacion.frm
-'
-'**************************************************************
-
-'**************************************************************************
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'**************************************************************************
-
 Option Explicit
+Private Sub Form_MouseMove(Button As Integer, Shift As Integer, X As Single, Y As Single)
+Dim i As Byte
 
-Dim LastColoured As Byte
-
-'odio programar sin tiempo (c) el oso
-
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
-    lblDescripcion(LastColoured).BorderStyle = 0
-    lblDescripcion(LastColoured).BackStyle = 0
+    For i = 0 To 4
+        lblDescripcion(i).BorderStyle = 0
+        lblDescripcion(i).BackStyle = 0
+    Next i
+    
 End Sub
-
-Private Sub lblDescripcion_Click(index As Integer)
-    Call WriteGuildFundate(index)
-    Unload Me
-End Sub
-
-Private Sub lblDescripcion_MouseMove(index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
+Private Sub lblDescripcion_Click(Index As Integer)
+Dim S As String
     
-    If LastColoured <> index Then
-        lblDescripcion(LastColoured).BorderStyle = 0
-        lblDescripcion(LastColoured).BackStyle = 0
-    End If
-    
-    lblDescripcion(index).BorderStyle = 1
-    lblDescripcion(index).BackStyle = 1
-    
-    Select Case index
+    Select Case Index
         Case 0
-            lblDescripcion(index).BackColor = &H400000
-        Case 4
-            lblDescripcion(index).BackColor = &H800000
-        Case 2
-            lblDescripcion(index).BackColor = 4194368
-        Case 5
-            lblDescripcion(index).BackColor = &H80&
+            S = "armada"
         Case 1
-            lblDescripcion(index).BackColor = &H40&
+            S = "legal"
+        Case 2
+            S = "neutro"
+        Case 3
+            S = "criminal"
+        Case 4
+            S = "mal"
     End Select
     
-    LastColoured = index
+    S = "/fundarclan " & S
+    Call SendData(S)
+    Unload Me
 End Sub
-
-
-Private Sub lblNombre_MouseMove(index As Integer, Button As Integer, Shift As Integer, x As Single, y As Single)
-    lblDescripcion(LastColoured).BorderStyle = 0
-    lblDescripcion(LastColoured).BackStyle = 0
+Private Sub lblDescripcion_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+    lblDescripcion(Index).BorderStyle = 1
+    lblDescripcion(Index).BackStyle = 1
+    Select Case Index
+        Case 0
+            lblDescripcion(Index).BackColor = &H400000
+        Case 1
+            lblDescripcion(Index).BackColor = &H800000
+        Case 2
+            lblDescripcion(Index).BackColor = 4194368
+        Case 3
+            lblDescripcion(Index).BackColor = &H80&
+        Case 4
+            lblDescripcion(Index).BackColor = &H40&
+    End Select
 End Sub
+Private Sub lblNombre_MouseMove(Index As Integer, Button As Integer, Shift As Integer, X As Single, Y As Single)
+Dim i As Byte
 
+    For i = 0 To 4
+        lblDescripcion(i).BorderStyle = 0
+        lblDescripcion(i).BackStyle = 0
+    Next i
+    
+
+End Sub
 Private Sub lblSalir_Click()
     Unload Me
 End Sub

@@ -1,12 +1,11 @@
 VERSION 5.00
 Begin VB.Form frmGuildURL 
-   BorderStyle     =   0  'None
+   BorderStyle     =   5  'Sizable ToolWindow
    Caption         =   "Oficial Web Site"
-   ClientHeight    =   1545
-   ClientLeft      =   0
-   ClientTop       =   -45
-   ClientWidth     =   6285
-   ClipControls    =   0   'False
+   ClientHeight    =   1035
+   ClientLeft      =   60
+   ClientTop       =   225
+   ClientWidth     =   6135
    ControlBox      =   0   'False
    BeginProperty Font 
       Name            =   "Tahoma"
@@ -20,25 +19,35 @@ Begin VB.Form frmGuildURL
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   1545
-   ScaleWidth      =   6285
+   ScaleHeight     =   1035
+   ScaleWidth      =   6135
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  'CenterOwner
-   Begin VB.TextBox Text1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Left            =   280
-      TabIndex        =   0
-      Top             =   630
-      Width           =   5655
-   End
-   Begin VB.Image Command1 
+   Begin VB.CommandButton Command1 
+      Caption         =   "Aceptar"
+      Default         =   -1  'True
       Height          =   255
-      Left            =   2400
-      Top             =   1080
-      Width           =   1455
+      Left            =   120
+      MouseIcon       =   "frmGuildURL.frx":0000
+      MousePointer    =   99  'Custom
+      TabIndex        =   2
+      Top             =   720
+      Width           =   5895
+   End
+   Begin VB.TextBox Text1 
+      Height          =   285
+      Left            =   120
+      TabIndex        =   1
+      Top             =   360
+      Width           =   5895
+   End
+   Begin VB.Label Label1 
+      Caption         =   "Ingrese la direccion del site:"
+      Height          =   255
+      Left            =   120
+      TabIndex        =   0
+      Top             =   120
+      Width           =   4215
    End
 End
 Attribute VB_Name = "frmGuildURL"
@@ -47,15 +56,8 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-
 Private Sub Command1_Click()
-Call General_Set_Wav(SND_CLICK)
-    If Text1 <> "" Then _
-        Call WriteGuildNewWebsite(Text1)
-    
-    Unload Me
-End Sub
-
-Private Sub Form_Load()
-Me.Picture = General_Load_Picture_From_Resource("55.gif")
+If text1 <> "" Then _
+    Call SendData("NEWWEBSI" & text1)
+Unload Me
 End Sub

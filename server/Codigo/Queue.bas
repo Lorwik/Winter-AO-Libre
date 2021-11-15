@@ -2,7 +2,7 @@ Attribute VB_Name = "Queue"
 Option Explicit
 
 Public Type tVertice
-    X As Integer
+    x As Integer
     Y As Integer
 End Type
 

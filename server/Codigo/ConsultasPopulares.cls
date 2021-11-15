@@ -67,7 +67,7 @@ Dim i As Integer
     End If
 End Sub
 
-Public Function doVotar(ByVal UserIndex As Integer, ByVal opcion As Integer) As String
+Public Function doVotar(ByVal UserIndex As Integer, opcion As Integer) As String
 On Error GoTo errorh
 Dim YaVoto As Boolean
 Dim CharFile As String
@@ -114,20 +114,20 @@ Dim sufragio As Integer
 
 Exit Function
 errorh:
-Call LogError("Error en ConsultasPopularse.doVotar: " & Err.description)
+Call LogError("Error en ConsultasPopularse.doVotar: " & Err.Description)
 
 End Function
 
 
 Public Function SendInfoEncuesta(ByVal UserIndex As Integer) As String
 Dim i As Integer
-    Call WriteConsoleMsg(UserIndex, "CONSULTA POPULAR NUMERO " & pEncuestaActualNum, FontTypeNames.FONTTYPE_GUILD)
-    Call WriteConsoleMsg(UserIndex, pEncuestaActualTex, FontTypeNames.FONTTYPE_GUILD)
-    Call WriteConsoleMsg(UserIndex, " Opciones de voto: ", FontTypeNames.FONTTYPE_GUILDMSG)
+    Call SendData(SendTarget.ToIndex, UserIndex, 0, "||CONSULTA POPULAR NUMERO " & pEncuestaActualNum & FONTTYPE_GUILD)
+    Call SendData(SendTarget.ToIndex, UserIndex, 0, "||" & pEncuestaActualTex & FONTTYPE_GUILD)
+    Call SendData(SendTarget.ToIndex, UserIndex, 0, "|| Opciones de voto: " & FONTTYPE_GUILDMSG)
     For i = 1 To UBound(pOpciones)
-        Call WriteConsoleMsg(UserIndex, "(Opcion " & i & "): " & GetVar(App.Path & ARCHIVOCONFIG, "ENCUESTA" & pEncuestaActualNum, "OPCION" & i), FontTypeNames.FONTTYPE_GUILDMSG)
+        Call SendData(SendTarget.ToIndex, UserIndex, 0, "||(Opcion " & i & "): " & GetVar(App.Path & ARCHIVOCONFIG, "ENCUESTA" & pEncuestaActualNum, "OPCION" & i) & FONTTYPE_GUILDMSG)
     Next i
-    Call WriteConsoleMsg(UserIndex, " Para votar una opcion, escribe /encuesta NUMERODEOPCION, por ejemplo para votar la opcion 1, escribe /encuesta 1. Tu voto no podra ser cambiado.", FontTypeNames.FONTTYPE_VENENO)
+    Call SendData(SendTarget.ToIndex, UserIndex, 0, "|| Para votar una opcion, escribe /encuesta NUMERODEOPCION, por ejemplo para votar la opcion 1, escribe /encuesta 1. Tu voto no podra ser cambiado." & FONTTYPE_VENENO)
 End Function
 
 
@@ -177,3 +177,10 @@ Private Function OpcionValida(ByVal opcion As Integer) As Boolean
     OpcionValida = opcion > 0 And opcion <= UBound(pOpciones)
 End Function
 
+Private Function DameOpcion(ByVal opcion As Integer) As String
+    If OpcionValida(opcion) Then
+        DameOpcion = GetVar(App.Path & ARCHIVOCONFIG, "ENCUESTA" & pEncuestaActualNum, "OPCION" & opcion)
+    Else
+        DameOpcion = "ERROR"
+    End If
+End Function

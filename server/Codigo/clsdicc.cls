@@ -48,7 +48,7 @@ Dim i As Integer
 
 AtPut = False
 
-If LenB(clave) = 0 Then Exit Function
+If clave = "" Then Exit Function
 
 clave = UCase$(clave)
 
@@ -92,18 +92,18 @@ Public Function AtIndex(ByVal i As Integer) As String
 End Function
 
 
-Public Function MayorValor(ByRef cant As Integer) As String
+Public Function MayorValor(ByRef Cant As Integer) As String
 'parchecito para el AO, me da la clave con mayor valor en valor
 'y la cantidad de claves con ese valor (por si hay empate)
 Dim i As Integer
 Dim max As Integer
 Dim clave As String
     max = -1
-    cant = 0
+    Cant = 0
     clave = vbNullString
     For i = 1 To p_cant
         If max <= CInt(p_elementos(i).def) Then
-            cant = IIf(max = CInt(p_elementos(i).def), cant + 1, 1)
+            Cant = IIf(max = CInt(p_elementos(i).def), Cant + 1, 1)
             clave = IIf(max = CInt(p_elementos(i).def), clave & "," & p_elementos(i).clave, p_elementos(i).clave)
             max = CInt(p_elementos(i).def)
         End If
@@ -117,7 +117,7 @@ Public Sub DumpAll()
 Dim i As Integer
 
 For i = 1 To MAX_ELEM
-    p_elementos(i).clave = vbNullString
+    p_elementos(i).clave = ""
     p_elementos(i).def = Null
 Next i
 p_cant = 0

@@ -1,11 +1,11 @@
 VERSION 5.00
 Begin VB.Form frmGuildDetails 
-   BorderStyle     =   0  'None
+   BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Detalles del Clan"
-   ClientHeight    =   7125
-   ClientLeft      =   0
-   ClientTop       =   -45
-   ClientWidth     =   6900
+   ClientHeight    =   6660
+   ClientLeft      =   45
+   ClientTop       =   210
+   ClientWidth     =   6840
    ClipControls    =   0   'False
    ControlBox      =   0   'False
    BeginProperty Font 
@@ -20,122 +20,156 @@ Begin VB.Form frmGuildDetails
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   7125
-   ScaleWidth      =   6900
+   ScaleHeight     =   6660
+   ScaleWidth      =   6840
    ShowInTaskbar   =   0   'False
-   StartUpPosition =   2  'CenterScreen
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   0
-      Left            =   640
-      TabIndex        =   8
-      Top             =   3590
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   1
-      Left            =   640
-      TabIndex        =   7
-      Top             =   3950
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   2
-      Left            =   640
-      TabIndex        =   6
-      Top             =   4310
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   3
-      Left            =   640
-      TabIndex        =   5
-      Top             =   4650
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   4
-      Left            =   640
-      TabIndex        =   4
-      Top             =   5030
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   5
-      Left            =   640
-      TabIndex        =   3
-      Top             =   5390
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   6
-      Left            =   640
-      TabIndex        =   2
-      Top             =   5750
-      Width           =   5655
-   End
-   Begin VB.TextBox txtCodex1 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   285
-      Index           =   7
-      Left            =   640
-      TabIndex        =   1
-      Top             =   6110
-      Width           =   5655
-   End
-   Begin VB.TextBox txtDesc 
-      BackColor       =   &H00000000&
-      BorderStyle     =   0  'None
-      ForeColor       =   &H00FFFFFF&
-      Height          =   1455
-      Left            =   390
-      MultiLine       =   -1  'True
-      TabIndex        =   0
-      Top             =   690
-      Width           =   6135
-   End
-   Begin VB.Image Command1 
+   StartUpPosition =   1  'CenterOwner
+   Begin VB.CommandButton Command1 
+      Caption         =   "Aceptar"
       Height          =   255
       Index           =   1
       Left            =   5160
-      Top             =   6600
-      Width           =   1335
+      MouseIcon       =   "frmGuildDetails.frx":0000
+      MousePointer    =   99  'Custom
+      TabIndex        =   13
+      Top             =   6360
+      Width           =   1455
    End
-   Begin VB.Image Command1 
+   Begin VB.CommandButton Command1 
+      Cancel          =   -1  'True
+      Caption         =   "Cancelar"
       Height          =   255
       Index           =   0
-      Left            =   360
-      Top             =   6600
+      Left            =   120
+      MouseIcon       =   "frmGuildDetails.frx":0152
+      MousePointer    =   99  'Custom
+      TabIndex        =   12
+      Top             =   6360
       Width           =   1455
+   End
+   Begin VB.Frame Frame1 
+      Caption         =   "Codex"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   4215
+      Left            =   120
+      TabIndex        =   2
+      Top             =   2040
+      Width           =   6495
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   7
+         Left            =   360
+         TabIndex        =   11
+         Top             =   3720
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   6
+         Left            =   360
+         TabIndex        =   10
+         Top             =   3360
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   5
+         Left            =   360
+         TabIndex        =   9
+         Top             =   3000
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   4
+         Left            =   360
+         TabIndex        =   8
+         Top             =   2640
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   3
+         Left            =   360
+         TabIndex        =   7
+         Top             =   2280
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   2
+         Left            =   360
+         TabIndex        =   6
+         Top             =   1920
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   1
+         Left            =   360
+         TabIndex        =   5
+         Top             =   1560
+         Width           =   5655
+      End
+      Begin VB.TextBox txtCodex1 
+         Height          =   285
+         Index           =   0
+         Left            =   360
+         TabIndex        =   4
+         Top             =   1200
+         Width           =   5655
+      End
+      Begin VB.Label Label1 
+         Alignment       =   2  'Center
+         Caption         =   $"frmGuildDetails.frx":02A4
+         BeginProperty Font 
+            Name            =   "Tahoma"
+            Size            =   8.25
+            Charset         =   0
+            Weight          =   400
+            Underline       =   0   'False
+            Italic          =   -1  'True
+            Strikethrough   =   0   'False
+         EndProperty
+         Height          =   855
+         Left            =   120
+         TabIndex        =   3
+         Top             =   240
+         Width           =   6255
+      End
+   End
+   Begin VB.Frame frmDesc 
+      Caption         =   "Descripción"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   1935
+      Left            =   120
+      TabIndex        =   0
+      Top             =   0
+      Width           =   6495
+      Begin VB.TextBox txtDesc 
+         Height          =   1455
+         Left            =   120
+         MultiLine       =   -1  'True
+         TabIndex        =   1
+         Top             =   360
+         Width           =   6135
+      End
    End
 End
 Attribute VB_Name = "frmGuildDetails"
@@ -144,70 +178,44 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-
-Private Const MAX_DESC_LENGTH As Integer = 520
-Private Const MAX_CODEX_LENGTH As Integer = 100
-
 Private Sub Command1_Click(Index As Integer)
-    Select Case Index
-        Case 0
-        Call General_Set_Wav(SND_CLICK)
-            Unload Me
+Select Case Index
+
+Case 0
+    Unload Me
+Case 1
+    Dim fdesc$
+    fdesc$ = Replace(txtDesc, vbCrLf, "º", , , vbBinaryCompare)
+    
+    Dim k As Integer
+    Dim Cont As Integer
+    Cont = 0
+    For k = 0 To txtCodex1.UBound
+        If Len(txtCodex1(k).Text) > 0 Then Cont = Cont + 1
+    Next k
+    If Cont < 4 Then
+            MsgBox "Debes definir al menos cuatro mandamientos."
+            Exit Sub
+    End If
+    
+    Dim chunk$
+    
+    If CreandoClan Then
+        chunk$ = "CIG" & fdesc$
+        chunk$ = chunk$ & "¬" & ClanName & "¬" & Site & "¬" & Cont
+    Else
+        chunk$ = "DESCOD" & fdesc$ & "¬" & Cont
+    End If
         
-        Case 1
-        Call General_Set_Wav(SND_CLICK)
-            Dim fdesc As String
-            Dim Codex() As String
-            Dim k As Byte
-            Dim Cont As Byte
+    For k = 0 To txtCodex1.UBound
+        chunk$ = chunk$ & "¬" & txtCodex1(k)
+    Next k
     
-            fdesc = Replace(txtDesc, vbCrLf, "º", , , vbBinaryCompare)
+    Call SendData(chunk$)
     
-            '    If Not AsciiValidos(fdesc) Then
-            '        MsgBox "La descripcion contiene caracteres invalidos"
-            '        Exit Sub
-            '    End If
-
-            Cont = 0
-            For k = 0 To txtCodex1.UBound
-            '    If Not AsciiValidos(txtCodex1(k)) Then
-            '        MsgBox "El codex tiene invalidos"
-            '        Exit Sub
-            '    End If
-                If LenB(txtCodex1(k).Text) <> 0 Then Cont = Cont + 1
-            Next k
-            If Cont < 4 Then
-                MsgBox "Debes definir al menos cuatro mandamientos."
-                Exit Sub
-            End If
-                        
-            ReDim Codex(txtCodex1.UBound) As String
-            For k = 0 To txtCodex1.UBound
-                Codex(k) = txtCodex1(k)
-            Next k
+    CreandoClan = False
     
-            If CreandoClan Then
-                Call WriteCreateNewGuild(fdesc, ClanName, Site, Codex)
-            Else
-                Call WriteClanCodexUpdate(fdesc, Codex)
-            End If
-
-            CreandoClan = False
-            Unload Me
-            
-    End Select
-End Sub
-
-Private Sub Form_Load()
-Me.Picture = General_Load_Picture_From_Resource("50.gif")
-End Sub
-
-Private Sub txtCodex1_Change(Index As Integer)
-    If Len(txtCodex1.Item(Index).Text) > MAX_CODEX_LENGTH Then _
-        txtCodex1.Item(Index).Text = Left$(txtCodex1.Item(Index).Text, MAX_CODEX_LENGTH)
-End Sub
-
-Private Sub txtDesc_Change()
-    If Len(txtDesc.Text) > MAX_DESC_LENGTH Then _
-        txtDesc.Text = Left$(txtDesc.Text, MAX_DESC_LENGTH)
+    Unload Me
+    
+End Select
 End Sub

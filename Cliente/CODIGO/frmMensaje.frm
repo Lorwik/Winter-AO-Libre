@@ -1,32 +1,44 @@
 VERSION 5.00
 Begin VB.Form frmMensaje 
    BackColor       =   &H00C0C0C0&
-   BorderStyle     =   0  'None
-   ClientHeight    =   3255
-   ClientLeft      =   0
-   ClientTop       =   -105
+   BorderStyle     =   4  'Fixed ToolWindow
+   Caption         =   "Mensaje"
+   ClientHeight    =   3195
+   ClientLeft      =   45
+   ClientTop       =   210
    ClientWidth     =   3990
    ClipControls    =   0   'False
    ControlBox      =   0   'False
-   Icon            =   "frmMensaje.frx":0000
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   217
-   ScaleMode       =   3  'Pixel
-   ScaleWidth      =   266
+   ScaleHeight     =   3195
+   ScaleWidth      =   3990
    ShowInTaskbar   =   0   'False
    StartUpPosition =   1  'CenterOwner
-   Begin VB.Image Command1 
-      Height          =   285
-      Left            =   1320
-      Top             =   2790
-      Width           =   1365
+   Begin VB.CommandButton Command1 
+      Caption         =   "Cerrar"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   195
+      Left            =   120
+      MouseIcon       =   "frmMensaje.frx":0000
+      MousePointer    =   99  'Custom
+      TabIndex        =   1
+      Top             =   2940
+      Width           =   3735
    End
    Begin VB.Label msg 
       BackStyle       =   0  'Transparent
       BeginProperty Font 
-         Name            =   "Tahoma"
+         Name            =   "MS Sans Serif"
          Size            =   8.25
          Charset         =   0
          Weight          =   700
@@ -34,12 +46,12 @@ Begin VB.Form frmMensaje
          Italic          =   0   'False
          Strikethrough   =   0   'False
       EndProperty
-      ForeColor       =   &H00FFFFFF&
-      Height          =   2415
-      Left            =   240
+      ForeColor       =   &H00000000&
+      Height          =   2775
+      Left            =   60
       TabIndex        =   0
-      Top             =   360
-      Width           =   3495
+      Top             =   120
+      Width           =   3855
       WordWrap        =   -1  'True
    End
 End
@@ -49,21 +61,10 @@ Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
 Option Explicit
-
 Private Sub Command1_Click()
 Unload Me
 End Sub
-
 Private Sub Form_Deactivate()
 Me.SetFocus
 End Sub
-Private Sub Form_Load()
-Me.Picture = General_Load_Picture_From_Resource("58.gif")
-Call Make_Transparent_Form(Me.hwnd, 210)
-End Sub
-Private Sub command1_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
-    Command1.Picture = General_Load_Picture_From_Resource("29.gif")
-End Sub
-Private Sub Form_MouseMove(Button As Integer, Shift As Integer, x As Single, y As Single)
-    Command1.Picture = LoadPicture("")
-End Sub
+

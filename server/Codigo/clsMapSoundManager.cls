@@ -11,25 +11,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
-'**************************************************************
-' SoundMapInfo.cls
-'
-'**************************************************************
-
-'**************************************************************************
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'**************************************************************************
-
 Option Explicit
 
 Private Type p_tSoundMapInfo
@@ -38,10 +19,6 @@ Private Type p_tSoundMapInfo
     flags() As Long
     Probabilidad() As Single
 End Type
-
-Private Enum p_eSoundFlags
-    ninguna = 0
-End Enum
 
 Private p_Mapas() As p_tSoundMapInfo
 
@@ -63,30 +40,23 @@ Private Sub Class_Initialize()
 End Sub
 
 Public Sub LoadSoundMapInfo()
-    Dim i As Integer
-    Dim j As Integer
-    Dim Temps As String
-    Dim MAPFILE As String
-    
+Dim i As Integer
+Dim j As Integer
+Dim Temps As String
+Dim MAPFILE As String
     MAPFILE = App.Path & MapPath & "MAPA"
     
-    'Usage of Val() prevents errors when dats are corrputed or incomplete. All invalid values are assumed to be zero.
-    
-'TODO : Log the error in the dat for correction.
     For i = 1 To UBound(p_Mapas)
         Temps = GetVar(MAPFILE & i & ".dat", "SONIDOS", "Cantidad")
-        
         If IsNumeric(Temps) Then
-            p_Mapas(i).Cantidad = val(Temps)
-            
+            p_Mapas(i).Cantidad = CInt(GetVar(MAPFILE & i & ".dat", "SONIDOS", "Cantidad"))
             ReDim p_Mapas(i).flags(1 To p_Mapas(i).Cantidad) As Long
             ReDim p_Mapas(i).Probabilidad(1 To p_Mapas(i).Cantidad) As Single
             ReDim p_Mapas(i).SoundIndex(1 To p_Mapas(i).Cantidad) As Integer
-            
             For j = 1 To p_Mapas(i).Cantidad
-                p_Mapas(i).flags(j) = val(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Flags"))
-                p_Mapas(i).Probabilidad(j) = val(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Probabilidad"))
-                p_Mapas(i).SoundIndex(j) = val(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Sonido"))
+                p_Mapas(i).flags(j) = CInt(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Flags"))
+                p_Mapas(i).Probabilidad(j) = CSng(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Probabilidad"))
+                p_Mapas(i).SoundIndex(j) = CInt(GetVar(MAPFILE & i & ".dat", "SONIDO" & j, "Sonido"))
             Next j
         Else
             p_Mapas(i).Cantidad = 0
@@ -94,6 +64,22 @@ Public Sub LoadSoundMapInfo()
     Next i
 End Sub
 
-Public Sub ReproducirSonido(ByVal Destino As SendTarget, ByVal index As Integer, ByVal SoundIndex As Integer)
-    Call SendData(Destino, index, PrepareMessagePlayWave(SoundIndex, UserList(index).Pos.X, UserList(index).Pos.Y))
+
+Public Sub ReproducirSonidosDeMapas()
+Dim i As Integer
+Dim SonidosMapa As Byte
+Dim SonidoMapa As Byte
+
+    For i = 1 To UBound(p_Mapas)
+        If p_Mapas(i).Cantidad > 0 Then
+            SonidoMapa = RandomNumber(1, p_Mapas(i).Cantidad)
+            If RandomNumber(1, 100) <= p_Mapas(i).Probabilidad(SonidoMapa) Then
+            End If
+        End If
+    Next i
+    
+End Sub
+
+Public Sub ReproducirSonido(ByVal Destino As Byte, ByVal userindex As Integer, ByVal mapa As Integer, ByVal SoundIndex As Integer)
+    Call SendData(Destino, userindex, mapa, "TW" & SoundIndex)
 End Sub

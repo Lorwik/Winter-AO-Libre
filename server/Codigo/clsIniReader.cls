@@ -11,44 +11,6 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = True
 Attribute VB_PredeclaredId = False
 Attribute VB_Exposed = False
-'**************************************************************
-' clsIniReader.cls - Loads INI files into memory and applies Binary Search to get values at high speed.
-' Use it instead of GetVar when reading several values form the same file at once, otherwise it's not usefull.
-' Based in the idea of AlejoLP and his clsLeerInis.
-'
-' Designed and implemented by Juan Martín Sotuyo Dodero (Maraxus)
-' (juansotuyo@gmail.com)
-'**************************************************************
-
-'**************************************************************************
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'**************************************************************************
-
-''
-'Loads a complete INI file into memory and sorts it's data and keys for faster searches.
-'It is MUCH faster than GetPrivateProfileStringA if you search for several values within a file, otherwise stick to the API.
-'It's particularly usefull when you can keep a whole file in memory such as NPCs.dat'
-' Based in the idea of AlejoLP and his clsLeerInis.
-'
-' @author Juan Martín Sotuyo Dodero (Maraxus) juansotuyo@gmail.com
-' @version 1.1.0
-' @date 20060501
-
-'01/05/2006 - Juan Martín Sotuyo Dodero (Maraxus) - (juansotuyo@gmail.com)
-'   - First Release
-'
-'01/04/2008 - Juan Martín Sotuyo Dodero (Maraxus) - (juansotuyo@gmail.com)
-'   - Add: KeyExists method allows to check for valid section keys.
 
 
 Option Explicit
@@ -65,7 +27,7 @@ Option Base 0
 
 Private Type ChildNode
     Key As String
-    Value As String
+    value As String
 End Type
 
 ''
@@ -76,6 +38,7 @@ End Type
 'It's the key used when searching for a main section of the INI data.
 ' @param    values Array of ChildNodes, each containing a value entry along with it's key.
 ' @param    numValues Number of entrys in the main node.
+'
 
 Private Type MainNode
     name As String
@@ -85,14 +48,17 @@ End Type
 
 ''
 'Containts all Main sections of the loaded INI file
+'
 Private fileData() As MainNode
 
 ''
 'Stores the total number of main sections in the loaded INI file
+'
 Private MainNodes As Long
 
 ''
 'Default constructor. Does nothing.
+'
 
 Private Sub Class_Initialize()
 '**************************************************************
@@ -122,8 +88,6 @@ Private Sub Class_Terminate()
         
         Erase fileData
     End If
-    
-    MainNodes = 0
 End Sub
 
 ''
@@ -131,19 +95,17 @@ End Sub
 '
 ' @param    file Complete path of the INI file to be loaded.
 ' @see      GetValue
+'
 
 Public Sub Initialize(ByVal file As String)
 '**************************************************************
 'Author: Juan Martín Sotuyo Dodero
-'Last Modify Date: 27/07/2006
+'Last Modify Date: 5/01/2006
 'Opens the requested file and loads it's data into memory
 '**************************************************************
     Dim handle As Integer
     Dim Text As String
     Dim Pos As Long
-    
-    'Prevent memory losses if we are attempting to reload a file....
-    Call Class_Terminate
     
     'Get a free handle and start reading line by line until the end
     handle = FreeFile
@@ -177,7 +139,7 @@ Public Sub Initialize(ByVal file As String)
                             'Add it to the main node's value
                             ReDim Preserve .values(.numValues) As ChildNode
                             
-                            .values(.numValues).Value = Right$(Text, Len(Text) - Pos)
+                            .values(.numValues).value = Right$(Text, Len(Text) - Pos)
                             .values(.numValues).Key = UCase$(Left$(Text, Pos - 1))
                             
                             .numValues = .numValues + 1
@@ -210,6 +172,7 @@ End Sub
 ' @param    Node The MainNode whose values are to be sorted.
 ' @param    first The first index to consider when sorting.
 ' @param    last The last index to be considered when sorting.
+'
 
 Private Sub SortChildNodes(ByRef Node As MainNode, ByVal First As Integer, ByVal Last As Integer)
 '**************************************************************
@@ -255,6 +218,7 @@ End Sub
 '
 ' @param    first The first index to consider when sorting.
 ' @param    last The last index to be considered when sorting.
+'
 
 Private Sub SortMainNodes(ByVal First As Integer, ByVal Last As Integer)
 '**************************************************************
@@ -299,6 +263,7 @@ End Sub
 ' @param    Main The name of the main section in which we will be searching.
 ' @param    key The key of the value we are looking for.
 ' @returns  The value asociated with the given key under the requeted main section of the INI file or a null string if it's not found.
+'
 
 Public Function GetValue(ByVal Main As String, ByVal Key As String) As String
 '**************************************************************
@@ -317,37 +282,9 @@ Public Function GetValue(ByVal Main As String, ByVal Key As String) As String
         j = FindKey(fileData(i), UCase$(Key))
         
         'If we found it we return it
-        If j >= 0 Then GetValue = fileData(i).values(j).Value
+        If j >= 0 Then GetValue = fileData(i).values(j).value
     End If
 End Function
-
-''
-'Searches for a given key within a given main section and if it exists retrieves it's value, otherwise a null string
-'
-' @param    Main The name of the main section in which we will be searching.
-' @param    key The key of the value we are looking for.
-' @returns  The value asociated with the given key under the requeted main section of the INI file or a null string if it's not found.
-
-Public Sub ChangeValue(ByVal Main As String, ByVal Key As String, ByVal Value As Long)
-'**************************************************************
-'Author: ZaMa
-'Last Modify Date: 27/05/2009
-'If the key and main node exist, changes the value
-'**************************************************************
-    Dim i As Long
-    Dim j As Long
-    
-    'Search for the main node
-    i = FindMain(UCase$(Main))
-    
-    If i >= 0 Then
-        'If valid, binary search among keys
-        j = FindKey(fileData(i), UCase$(Key))
-        
-        'If we found it we change it
-        If j >= 0 Then fileData(i).values(j).Value = Value
-    End If
-End Sub
 
 ''
 'Searches for a given key within a given main node and returns the index in which it's stored or the negation of the index in which it should be if not found.
@@ -355,6 +292,7 @@ End Sub
 ' @param    Node The MainNode among whose value entries we will be searching.
 ' @param    key The key of the value we are looking for.
 ' @returns  The index in which the value with the key we are looking for is stored or the negation of the index in which it should be if not found.
+'
 
 Private Function FindKey(ByRef Node As MainNode, ByVal Key As String) As Long
 '**************************************************************
@@ -394,6 +332,7 @@ End Function
 '
 ' @param    name The name of the MainNode we are looking for.
 ' @returns  The index in which the main section we are looking for is stored or the negation of the index in which it should be if not found.
+'
 
 Private Function FindMain(ByVal name As String) As Long
 '**************************************************************
@@ -427,19 +366,3 @@ Private Function FindMain(ByVal name As String) As Long
     '(all higher values are to the right of the list and lower values are to the left)
     FindMain = Not mid
 End Function
-
-''
-'Checks wether a given key exists or not.
-'
-' @param    name    The name of the element whose existance is being checked.
-' @returns  True if the key exists, false otherwise.
-
-Public Function KeyExists(ByVal name As String) As Boolean
-'**************************************************************
-'Author: Juan Martín Sotuyo Dodero
-'Last Modify Date: 04/01/2008
-'Returns true of the key exists, false otherwise.
-'**************************************************************
-    KeyExists = FindMain(UCase$(name)) >= 0
-End Function
-

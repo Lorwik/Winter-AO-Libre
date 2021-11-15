@@ -1,875 +1,367 @@
 VERSION 5.00
-Object = "{831FDD16-0C5C-11D2-A9FC-0000F8754DA1}#2.0#0"; "MSCOMCTL.OCX"
 Begin VB.Form frmPanelGm 
-   BorderStyle     =   1  'Fixed Single
+   BorderStyle     =   4  'Fixed ToolWindow
    Caption         =   "Panel GM"
-   ClientHeight    =   5955
+   ClientHeight    =   5235
    ClientLeft      =   45
-   ClientTop       =   330
-   ClientWidth     =   4200
-   ClipControls    =   0   'False
+   ClientTop       =   225
+   ClientWidth     =   4785
+   BeginProperty Font 
+      Name            =   "Tahoma"
+      Size            =   8.25
+      Charset         =   0
+      Weight          =   400
+      Underline       =   0   'False
+      Italic          =   0   'False
+      Strikethrough   =   0   'False
+   EndProperty
    LinkTopic       =   "Form1"
    MaxButton       =   0   'False
    MinButton       =   0   'False
-   ScaleHeight     =   5955
-   ScaleWidth      =   4200
+   ScaleHeight     =   5235
+   ScaleWidth      =   4785
+   ShowInTaskbar   =   0   'False
    StartUpPosition =   1  'CenterOwner
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   5295
-      Index           =   3
+   Begin VB.CommandButton Command1 
+      Caption         =   "Responder"
+      Height          =   255
+      Left            =   360
+      TabIndex        =   9
+      Top             =   4440
+      Width           =   4095
+   End
+   Begin VB.TextBox txtResp 
+      BackColor       =   &H00C0C0C0&
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   1095
       Left            =   120
-      TabIndex        =   12
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdUNBANACC 
-         Caption         =   "/UNBANACC"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   88
-         Top             =   3120
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdBANACC 
-         Caption         =   "/BANACC"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   87
-         Top             =   3120
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdNOREAL 
-         Caption         =   "/NOREAL"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2040
-         TabIndex        =   86
-         Top             =   4440
-         Width           =   1815
-      End
-      Begin VB.CommandButton cmdNOCAOS 
-         Caption         =   "/NOCAOS"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   85
-         Top             =   4440
-         Width           =   1815
-      End
-      Begin VB.CommandButton cmdKICKCONSE 
-         Caption         =   "/KICKCONSE"
-         CausesValidation=   0   'False
-         Height          =   435
-         Left            =   2520
-         TabIndex        =   84
-         Top             =   4800
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdACEPTCONSECAOS 
-         Caption         =   "/ACEPTCONSECAOS"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   83
-         Top             =   5040
-         Width           =   2295
-      End
-      Begin VB.CommandButton cmdACEPTCONSE 
-         Caption         =   "/ACEPTCONSE"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   82
-         Top             =   4800
-         Width           =   2295
-      End
-      Begin VB.ComboBox cboListaUsus 
-         Height          =   315
-         Left            =   120
-         Sorted          =   -1  'True
-         TabIndex        =   54
-         Top             =   480
-         Width           =   3675
-      End
-      Begin VB.CommandButton cmdActualiza 
-         Caption         =   "Actualizar"
-         CausesValidation=   0   'False
-         Height          =   255
-         Left            =   120
-         TabIndex        =   53
-         Top             =   120
-         Width           =   3675
-      End
-      Begin VB.CommandButton cmdIRCERCA 
-         Caption         =   "/IRCERCA"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   52
-         Top             =   960
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdDONDE 
-         Caption         =   "/DONDE"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   51
-         Top             =   1200
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdPENAS 
-         Caption         =   "/PENAS"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         Style           =   1  'Graphical
-         TabIndex        =   50
-         Top             =   2400
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdTELEP 
-         Caption         =   "/TELEP"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   49
-         Top             =   960
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdSILENCIAR 
-         Caption         =   "/SILENCIAR"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   48
-         Top             =   2640
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdIRA 
-         Caption         =   "/IRA"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   47
-         Top             =   1200
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCARCEL 
-         Caption         =   "/CARCEL"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   46
-         Top             =   2400
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdADVERTENCIA 
-         Caption         =   "/ADVERTENCIA"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   45
-         Top             =   2400
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdINFO 
-         Caption         =   "/INFO"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   44
-         Top             =   1560
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdSTAT 
-         Caption         =   "/STAT"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   43
-         Top             =   1560
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdBAL 
-         Caption         =   "/BAL"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   42
-         Top             =   1560
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdINV 
-         Caption         =   "/INV"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   41
-         Top             =   1800
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdBOV 
-         Caption         =   "/BOV"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   40
-         Top             =   1800
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdSKILLS 
-         Caption         =   "/SKILLS"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   39
-         Top             =   1800
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdREVIVIR 
-         Caption         =   "/REVIVIR"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   38
-         Top             =   3600
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdPERDON 
-         Caption         =   "/PERDON"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   37
-         Top             =   3840
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdECHAR 
-         Caption         =   "/ECHAR"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   36
-         Top             =   2640
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdEJECUTAR 
-         Caption         =   "/EJECUTAR"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   35
-         Top             =   3600
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdBAN 
-         Caption         =   "/BAN"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   34
-         Top             =   2880
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdUNBAN 
-         Caption         =   "/UNBAN"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   33
-         Top             =   2880
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdSUM 
-         Caption         =   "/SUM"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   32
-         Top             =   960
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdNICK2IP 
-         Caption         =   "/NICK2IP"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   31
-         Top             =   2160
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdESTUPIDO 
-         Caption         =   "/ESTUPIDO"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   30
-         Top             =   4080
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdNOESTUPIDO 
-         Caption         =   "/NOESTUPIDO"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   29
-         Top             =   4080
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdBORRARPENA 
-         Caption         =   "/BORRARPENA"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   28
-         Top             =   2640
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdLASTIP 
-         Caption         =   "/LASTIP"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   1320
-         TabIndex        =   27
-         Top             =   2160
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCONDEN 
-         Caption         =   "/CONDEN"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   120
-         TabIndex        =   26
-         Top             =   3840
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdRAJAR 
-         Caption         =   "/RAJAR"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   25
-         Top             =   3600
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdRAJARCLAN 
-         Caption         =   "/RAJARCLAN"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   24
-         Top             =   2880
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdLASTEMAIL 
-         Caption         =   "/LASTEMAIL"
-         CausesValidation=   0   'False
-         Height          =   195
-         Left            =   2520
-         TabIndex        =   23
-         Top             =   2160
-         Width           =   1095
-      End
-      Begin VB.Line Line1 
-         Index           =   2
-         X1              =   0
-         X2              =   3840
-         Y1              =   4680
-         Y2              =   4680
-      End
-      Begin VB.Line Line1 
-         Index           =   1
-         X1              =   0
-         X2              =   3840
-         Y1              =   4320
-         Y2              =   4320
-      End
-      Begin VB.Line Line2 
-         X1              =   -120
-         X2              =   3720
-         Y1              =   1440
-         Y2              =   1440
-      End
-      Begin VB.Line Line1 
-         Index           =   0
-         X1              =   0
-         X2              =   3840
-         Y1              =   3480
-         Y2              =   3480
-      End
+      MultiLine       =   -1  'True
+      TabIndex        =   7
+      Top             =   3120
+      Visible         =   0   'False
+      Width           =   4575
+   End
+   Begin VB.CommandButton cmd1 
+      Caption         =   ">> Enviar el mensaje <<"
+      Height          =   255
+      Left            =   360
+      TabIndex        =   6
+      Top             =   4200
+      Visible         =   0   'False
+      Width           =   4095
    End
    Begin VB.CommandButton cmdCerrar 
       Caption         =   "Cerrar"
-      CausesValidation=   0   'False
-      Height          =   375
-      Left            =   0
-      TabIndex        =   0
-      Top             =   5640
-      Width           =   4215
+      Height          =   255
+      Left            =   480
+      TabIndex        =   3
+      Top             =   4920
+      Width           =   3855
    End
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   1455
-      Index           =   1
-      Left            =   120
-      TabIndex        =   1
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdGMSG 
-         Caption         =   "/GMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   240
-         TabIndex        =   11
-         Top             =   600
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdHORA 
-         Caption         =   "/HORA"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   240
-         TabIndex        =   10
-         Top             =   120
-         Width           =   855
-      End
-      Begin VB.CommandButton cmdRMSG 
-         Caption         =   "/RMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1440
-         TabIndex        =   9
-         Top             =   600
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdREALMSG 
-         Caption         =   "/REALMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   240
-         TabIndex        =   8
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCAOSMSG 
-         Caption         =   "/CAOSMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1440
-         TabIndex        =   7
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCIUMSG 
-         Caption         =   "/CIUMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2640
-         TabIndex        =   6
-         Top             =   1080
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdTALKAS 
-         Caption         =   "/TALKAS"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2880
-         TabIndex        =   5
-         Top             =   120
-         Width           =   855
-      End
-      Begin VB.CommandButton cmdMOTDCAMBIA 
-         Caption         =   "/MOTDCAMBIA"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1320
-         TabIndex        =   4
-         Top             =   120
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdSMSG 
-         Caption         =   "/SMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2640
-         TabIndex        =   3
-         Top             =   600
-         Width           =   1095
-      End
-   End
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   2415
-      Index           =   5
-      Left            =   120
-      TabIndex        =   55
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdCC 
-         Caption         =   "/CC"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   720
-         TabIndex        =   72
-         Top             =   720
-         Width           =   2655
-      End
-      Begin VB.CommandButton cmdLIMPIAR 
-         Caption         =   "/LIMPIAR"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   71
-         Top             =   120
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCT 
-         Caption         =   "/CT"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   720
-         TabIndex        =   70
-         Top             =   1200
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdDT 
-         Caption         =   "/DT"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   69
-         Top             =   1200
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdLLUVIA 
-         Caption         =   "/LLUVIA"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   720
-         TabIndex        =   68
-         Top             =   120
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdMASSDEST 
-         Caption         =   "/MASSDEST"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   67
-         Top             =   2040
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdPISO 
-         Caption         =   "/PISO"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   720
-         TabIndex        =   66
-         Top             =   2040
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdCI 
-         Caption         =   "/CI"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   720
-         TabIndex        =   65
-         Top             =   1680
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdDEST 
-         Caption         =   "/DEST"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   64
-         Top             =   1680
-         Width           =   1095
-      End
-   End
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   2415
-      Index           =   2
+   Begin VB.ListBox List1 
+      Height          =   2010
       Left            =   120
       TabIndex        =   2
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdONLINEREAL 
-         Caption         =   "/ONLINEREAL"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   21
-         Top             =   1560
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdONLINECAOS 
-         Caption         =   "/ONLINECAOS"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2160
-         TabIndex        =   20
-         Top             =   1560
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdNENE 
-         Caption         =   "/NENE"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   19
-         Top             =   1080
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdSHOW_SOS 
-         Caption         =   "/SHOW SOS"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   18
-         Top             =   120
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdTRABAJANDO 
-         Caption         =   "/TRABAJANDO"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   17
-         Top             =   600
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdOCULTANDO 
-         Caption         =   "/OCULTANDO"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2160
-         TabIndex        =   16
-         Top             =   600
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdONLINEGM 
-         Caption         =   "/ONLINEGM"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   15
-         Top             =   2040
-         Width           =   3015
-      End
-      Begin VB.CommandButton cmdONLINEMAP 
-         Caption         =   "/ONLINEMAP"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2160
-         TabIndex        =   14
-         Top             =   1080
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdBORRAR_SOS 
-         Caption         =   "/BORRAR SOS"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2160
-         TabIndex        =   13
-         Top             =   120
-         Width           =   1335
-      End
+      Top             =   1080
+      Width           =   4560
    End
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   1815
-      Index           =   6
-      Left            =   120
-      TabIndex        =   56
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdSHOWCMSG 
-         Caption         =   "/SHOWCMSG"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   80
-         Top             =   1080
-         Width           =   1335
-      End
-      Begin VB.CommandButton cmdBANCLAN 
-         Caption         =   "/BANCLAN"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   480
-         TabIndex        =   79
-         Top             =   1440
-         Width           =   3015
-      End
-      Begin VB.CommandButton cmdMIEMBROSCLAN 
-         Caption         =   "/MIEMBROSCLAN"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1920
-         TabIndex        =   78
-         Top             =   1080
-         Width           =   1575
-      End
-      Begin VB.CommandButton cmdBANIPRELOAD 
-         Caption         =   "/BANIPRELOAD"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1440
-         TabIndex        =   77
-         Top             =   480
-         Width           =   2295
-      End
-      Begin VB.CommandButton cmdBANIPLIST 
-         Caption         =   "/BANIPLIST"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   240
-         TabIndex        =   76
-         Top             =   480
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdIP2NICK 
-         Caption         =   "/IP2NICK"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   240
-         TabIndex        =   75
-         Top             =   120
-         Width           =   1095
-      End
-      Begin VB.CommandButton cmdBANIP 
-         Caption         =   "/BANIP"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   1440
-         TabIndex        =   74
-         Top             =   120
-         Width           =   975
-      End
-      Begin VB.CommandButton cmdUNBANIP 
-         Caption         =   "/UNBANIP"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2520
-         TabIndex        =   73
-         Top             =   120
-         Width           =   1215
-      End
+   Begin VB.CommandButton cmdActualiza 
+      Caption         =   "&Actualiza"
+      Height          =   315
+      Left            =   3840
+      TabIndex        =   1
+      Top             =   120
+      Width           =   855
    End
-   Begin VB.Frame Frame 
-      BorderStyle     =   0  'None
-      Height          =   1935
-      Index           =   4
-      Left            =   120
-      TabIndex        =   22
-      Top             =   360
-      Width           =   3975
-      Begin VB.CommandButton cmdSHOWNAME 
-         Caption         =   "/SHOWNAME"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   63
-         Top             =   600
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdREM 
-         Caption         =   "/REM"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   600
-         TabIndex        =   62
-         Top             =   1560
-         Width           =   2895
-      End
-      Begin VB.CommandButton cmdINVISIBLE 
-         Caption         =   "/INVISIBLE"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   600
-         TabIndex        =   61
-         Top             =   120
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdSETDESC 
-         Caption         =   "/SETDESC"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   60
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdNAVE 
-         Caption         =   "/NAVE"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   600
-         TabIndex        =   59
-         Top             =   600
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdCHATCOLOR 
-         Caption         =   "/CHATCOLOR"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   600
-         TabIndex        =   58
-         Top             =   1080
-         Width           =   1215
-      End
-      Begin VB.CommandButton cmdIGNORADO 
-         Caption         =   "/IGNORADO"
-         CausesValidation=   0   'False
-         Height          =   315
-         Left            =   2280
-         TabIndex        =   57
-         Top             =   120
-         Width           =   1215
-      End
-   End
-   Begin MSComctlLib.TabStrip TabStrip 
-      CausesValidation=   0   'False
-      Height          =   1935
-      Left            =   0
-      TabIndex        =   81
-      Top             =   0
-      Width           =   4215
-      _ExtentX        =   7435
-      _ExtentY        =   3413
-      _Version        =   393216
-      BeginProperty Tabs {1EFB6598-857C-11D1-B16A-00C0F0283628} 
-         NumTabs         =   6
-         BeginProperty Tab1 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Message"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab2 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Info"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab3 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Player"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab4 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Me"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab5 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "World"
-            ImageVarType    =   2
-         EndProperty
-         BeginProperty Tab6 {1EFB659A-857C-11D1-B16A-00C0F0283628} 
-            Caption         =   "Admin"
-            ImageVarType    =   2
-         EndProperty
+   Begin VB.ComboBox cboListaUsus 
+      BeginProperty Font 
+         Name            =   "MS Sans Serif"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   400
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
       EndProperty
+      Height          =   315
+      Left            =   120
+      Sorted          =   -1  'True
+      TabIndex        =   0
+      Top             =   120
+      Width           =   3675
+   End
+   Begin VB.Label Label1 
+      BackColor       =   &H00FFFFFF&
+      BorderStyle     =   1  'Fixed Single
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   6.75
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      ForeColor       =   &H00000000&
+      Height          =   1095
+      Left            =   120
+      TabIndex        =   8
+      Top             =   3120
+      Width           =   4575
+   End
+   Begin VB.Label Label2 
+      Caption         =   "0"
+      Height          =   255
+      Left            =   2160
+      TabIndex        =   5
+      Top             =   600
+      Width           =   1455
+   End
+   Begin VB.Label Label11 
+      Caption         =   "Usuarios Online:"
+      BeginProperty Font 
+         Name            =   "Tahoma"
+         Size            =   8.25
+         Charset         =   0
+         Weight          =   700
+         Underline       =   0   'False
+         Italic          =   0   'False
+         Strikethrough   =   0   'False
+      EndProperty
+      Height          =   255
+      Left            =   720
+      TabIndex        =   4
+      Top             =   600
+      Width           =   1695
+   End
+   Begin VB.Line Line1 
+      Index           =   2
+      X1              =   120
+      X2              =   4680
+      Y1              =   490
+      Y2              =   490
+   End
+   Begin VB.Line Line1 
+      Index           =   1
+      X1              =   120
+      X2              =   4680
+      Y1              =   960
+      Y2              =   960
+   End
+   Begin VB.Line Line1 
+      Index           =   0
+      X1              =   120
+      X2              =   4680
+      Y1              =   4800
+      Y2              =   4800
+   End
+   Begin VB.Menu mnuUsuario 
+      Caption         =   "Usuario"
+      Visible         =   0   'False
+      Begin VB.Menu mnuBorrar 
+         Caption         =   "Borrar mensaje"
+      End
+      Begin VB.Menu mnuIra 
+         Caption         =   "Ir al usuario"
+      End
+      Begin VB.Menu mnuTraer 
+         Caption         =   "Traer el usuario"
+      End
+   End
+   Begin VB.Menu mnuChar 
+      Caption         =   "Personaje"
+      Begin VB.Menu cmdAccion 
+         Caption         =   "Echar"
+         Index           =   0
+      End
+      Begin VB.Menu cmdAccion 
+         Caption         =   "Sumonear"
+         Index           =   2
+      End
+      Begin VB.Menu cmdAccion 
+         Caption         =   "Ir a"
+         Index           =   3
+      End
+      Begin VB.Menu cmdAccion 
+         Caption         =   "Desbanear"
+         Index           =   12
+      End
+      Begin VB.Menu cmdAccion 
+         Caption         =   "IP del personaje"
+         Index           =   13
+      End
+      Begin VB.Menu cmdAccion 
+         Caption         =   "Revivir"
+         Index           =   21
+      End
+      Begin VB.Menu cmdBan 
+         Caption         =   "Banear"
+         Begin VB.Menu mnuBan 
+            Caption         =   "Personaje"
+            Index           =   1
+         End
+         Begin VB.Menu mnuBan 
+            Caption         =   "Personaje e IP"
+            Index           =   19
+         End
+      End
+      Begin VB.Menu mnuEncarcelar 
+         Caption         =   "Encarcelar"
+         Begin VB.Menu mnuCarcel 
+            Caption         =   "Encarcelar Usuario"
+            Index           =   60
+         End
+      End
+      Begin VB.Menu mnuInfo 
+         Caption         =   "Información"
+         Begin VB.Menu mnuAccion 
+            Caption         =   "General"
+            Index           =   8
+         End
+         Begin VB.Menu mnuAccion 
+            Caption         =   "Inventario"
+            Index           =   9
+         End
+         Begin VB.Menu mnuAccion 
+            Caption         =   "Skills"
+            Index           =   10
+         End
+         Begin VB.Menu mnuAccion 
+            Caption         =   "Bóveda"
+            Index           =   18
+         End
+      End
+      Begin VB.Menu mnuSilenciar 
+         Caption         =   "Silenciar"
+         Begin VB.Menu mnuSilencio 
+            Caption         =   "Silenciar Usuario"
+            Index           =   60
+         End
+      End
+   End
+   Begin VB.Menu cmdHerramientas 
+      Caption         =   "Herramientas"
+      Begin VB.Menu mnuHerramientas 
+         Caption         =   "Insertar comentario"
+         Index           =   4
+      End
+      Begin VB.Menu mnuHerramientas 
+         Caption         =   "Enviar hora"
+         Index           =   5
+      End
+      Begin VB.Menu mnuHerramientas 
+         Caption         =   "Limpiar Mapa"
+         Index           =   15
+      End
+      Begin VB.Menu mnuHerramientas 
+         Caption         =   "Usuarios trabajando"
+         Index           =   23
+      End
+      Begin VB.Menu mnuHerramientas 
+         Caption         =   "Bloquear tile"
+         Index           =   26
+      End
+      Begin VB.Menu IP 
+         Caption         =   "Direcciónes de IP"
+         Index           =   0
+         Begin VB.Menu mnuIP 
+            Caption         =   "Banear una IP"
+            Index           =   17
+         End
+         Begin VB.Menu mnuIP 
+            Caption         =   "Lista de IPs baneadas"
+            Index           =   25
+         End
+      End
+   End
+   Begin VB.Menu Admin 
+      Caption         =   "Administración"
+      Index           =   0
+      Begin VB.Menu mnuAdmin 
+         Caption         =   "Grabar personajes"
+         Index           =   28
+      End
+      Begin VB.Menu mnuAdmin 
+         Caption         =   "Iniciar WorldSave"
+         Index           =   29
+      End
+      Begin VB.Menu mnuAdmin 
+         Caption         =   "Limpiar el mundo"
+         Index           =   34
+      End
+      Begin VB.Menu Ambiente 
+         Caption         =   "Estado climático"
+         Index           =   0
+         Begin VB.Menu mnuAmbiente 
+            Caption         =   "Iniciar o detener una lluvia"
+            Index           =   31
+         End
+         Begin VB.Menu mnuAmbiente 
+            Caption         =   "Hacer Amanecer"
+            Index           =   36
+         End
+         Begin VB.Menu mnuAmbiente 
+            Caption         =   "Hacer de Dia"
+            Index           =   37
+         End
+         Begin VB.Menu mnuAmbiente 
+            Caption         =   "Hacer de Tarde"
+            Index           =   38
+         End
+         Begin VB.Menu mnuAmbiente 
+            Caption         =   "Hacer de Noche"
+            Index           =   39
+         End
+      End
+   End
+   Begin VB.Menu Reload 
+      Caption         =   "Reload"
+      Index           =   0
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Objetos"
+         Index           =   1
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Server.ini"
+         Index           =   2
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Mapas"
+         Index           =   3
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Hechizos"
+         Index           =   4
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Motd"
+         Index           =   5
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Npc"
+         Index           =   6
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Reiniciar"
+         Index           =   7
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload Guilds"
+         Index           =   8
+      End
+      Begin VB.Menu mnuReload 
+         Caption         =   "Reload BanIP"
+         Index           =   9
+      End
    End
 End
 Attribute VB_Name = "frmPanelGm"
@@ -877,780 +369,397 @@ Attribute VB_GlobalNameSpace = False
 Attribute VB_Creatable = False
 Attribute VB_PredeclaredId = True
 Attribute VB_Exposed = False
-'**************************************************************
-' frmPanelGm.frm
-'
-'**************************************************************
-
-'**************************************************************************
-'This program is free software; you can redistribute it and/or modify
-'it under the terms of the Affero General Public License;
-'either version 1 of the License, or any later version.
-'
-'This program is distributed in the hope that it will be useful,
-'but WITHOUT ANY WARRANTY; without even the implied warranty of
-'MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-'Affero General Public License for more details.
-'
-'You should have received a copy of the Affero General Public License
-'along with this program; if not, you can find it at http://www.affero.org/oagpl.html
-'**************************************************************************
-
 Option Explicit
 
-''
-' IMPORTANT!!!
-' To prevent the combo list of usernames from closing when a conole message arrives, the Validate event allways
-' sets the Cancel arg to True. This, combined with setting the CausesValidation of the RichTextBox to True
-' makes the trick. However, in order to be able to use other commands, ALL OTHER controls in this form must have the
-' CuasesValidation parameter set to false (unless you want to code your custom flag system to know when to allow or not the loose of focus).
+Private Const MAX_GM_MSG = 300
 
-Private Sub cboListaUsus_Validate(Cancel As Boolean)
-    Cancel = True
+Private MisMSG(0 To MAX_GM_MSG) As String
+Private Apunt(0 To MAX_GM_MSG) As Integer
+
+Dim lista As New Collection
+Dim Nick As String
+Public LastStr As String
+
+Private Sub cmd1_Click()
+If txtResp.Text = "" Then
+    MsgBox "Debes ingresar una respuesta!"
+    Exit Sub
+ElseIf Len(txtResp.Text) < 10 Then
+    MsgBox "El mensaje debe tener al menos 10 carácteres!"
+    Exit Sub
+End If
+
+SendData ("/RESPONDER " & ReadField(1, List1.List(List1.listIndex), Asc(";")) & "¬" & txtResp)
+
+txtResp.Visible = False
+txtResp.Text = ""
+cmd1.Visible = False
+SendData ("SOSDONE" & List1.List(List1.listIndex))
+List1.RemoveItem List1.listIndex
+Label1.Caption = ""
+List1.Clear
 End Sub
 
-Private Sub cmdACEPTCONSE_Click()
-    '/ACEPTCONSE
-    Dim Nick As String
+Private Sub cmdAccion_Click(Index As Integer)
 
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea aceptar a " & Nick & " como consejero real?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteAcceptRoyalCouncilMember(Nick)
-End Sub
+Dim tmp As String
 
-Private Sub cmdACEPTCONSECAOS_Click()
-    '/ACEPTCONSECAOS
-    Dim Nick As String
+Nick = Replace(cboListaUsus.Text, " ", "+")
 
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea aceptar a " & Nick & " como consejero del caos?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteAcceptChaosCouncilMember(Nick)
-End Sub
+Select Case Index
 
-Private Sub cmdADVERTENCIA_Click()
-    '/ADVERTENCIA
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-        
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Escriba el motivo de la advertencia.", "Advertir a " & Nick)
-                
-        If LenB(tStr) <> 0 Then
-            'We use the Parser to control the command format
-            Call ParseUserCommand("/ADVERTENCIA " & Nick & "@" & tStr)
-        End If
+Case 0 '/ECHAR nick
+    Call SendData("/ECHAR " & Nick)
+Case 1 '/ban motivo@nick
+    tmp = InputBox("¿Motivo?", "Ingrese el motivo")
+    If MsgBox("¿Está seguro que desea banear al personaje """ & cboListaUsus.Text & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/BAN " & tmp & "@" & cboListaUsus.Text)
     End If
-End Sub
-
-Private Sub cmdBAL_Click()
-    '/BAL
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharGold(Nick)
-End Sub
-
-Private Sub cmdBAN_Click()
-    '/BAN
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Escriba el motivo del ban.", "BAN a " & Nick)
-                
-        If LenB(tStr) <> 0 Then _
-            If MsgBox("¿Seguro desea banear a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-                Call WriteBanChar(Nick, tStr)
+Case 2 '/sum nick
+    Call SendData("/SUM " & Nick)
+Case 3 '/ira nick
+    Call SendData("/IRA " & Nick)
+Case 4 '/rem
+    tmp = InputBox("¿Comentario?", "Ingrese comentario")
+    Call SendData("/REM " & tmp)
+Case 5 '/hora
+    Call SendData("/HORA")
+Case 6 '/donde nick
+    Call SendData("/DONDE " & Nick)
+Case 7 '/nene
+    tmp = InputBox("¿En qué mapa?", "")
+    Call SendData("/NENE " & Trim(tmp))
+Case 8 '/info nick
+    Call SendData("/INFO " & Nick)
+Case 9 '/inv nick
+    Call SendData("/INV " & Nick)
+Case 10 '/skills nick
+    Call SendData("/SKILLS " & Nick)
+Case 11 '/carcel minutos nick
+    tmp = InputBox("¿Minutos a encarcelar? (hasta 60)", "")
+    If MsgBox("¿Esta seguro que desea encarcelar al personaje """ & Nick & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/CARCEL " & tmp & " " & Nick)
     End If
-End Sub
-
-Private Sub cmdBANACC_Click()
-    '/BANACC
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Escriba el motivo del ban.", "BANACC a " & Nick)
-                
-        If LenB(tStr) <> 0 Then _
-            If MsgBox("¿Seguro desea banear de cuenta a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-                Call WriteBanACC(Nick, tStr)
+Case 12 '/unban nick
+    If MsgBox("¿Esta seguro que desea removerle el ban al personaje """ & Nick & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/UNBAN " & Nick)
     End If
-End Sub
-
-Private Sub cmdBANCLAN_Click()
-    '/BANCLAN
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el nombre del clan.", "Banear clan")
-    If LenB(tStr) <> 0 Then _
-        If MsgBox("¿Seguro desea banear al clan " & tStr & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteGuildBan(tStr)
-End Sub
-
-Private Sub cmdBANIP_Click()
-    '/BANIP
-    Dim tStr As String
-    Dim reason As String
-    
-    tStr = InputBox("Escriba el ip o el nick del PJ.", "Banear IP")
-    
-    reason = InputBox("Escriba el motivo del ban.", "Banear IP")
-    
-    If LenB(tStr) <> 0 Then _
-        If MsgBox("¿Seguro desea banear la ip " & tStr & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call ParseUserCommand("/BANIP " & tStr & " " & reason) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdBANIPLIST_Click()
-    '/BANIPLIST
-    Call WriteBannedIPList
-End Sub
-
-Private Sub cmdBANIPRELOAD_Click()
-    '/BANIPRELOAD
-    Call WriteBannedIPReload
-End Sub
-
-Private Sub cmdBORRAR_SOS_Click()
-    '/BORRAR SOS
-    If MsgBox("¿Seguro desea borrar el SOS?", vbYesNo, "Atencion!") = vbYes Then _
-        Call WriteCleanSOS
-End Sub
-
-Private Sub cmdBORRARPENA_Click()
-    '/BORRARPENA
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Indique el número de la pena a borrar.", "Borrar pena")
-        If LenB(tStr) <> 0 Then _
-            If MsgBox("¿Seguro desea borrar la pena " & tStr & " a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-                Call ParseUserCommand("/BORRARPENA " & Nick & "@" & tStr) 'We use the Parser to control the command format
+Case 13 '/nick2ip nick
+    Call SendData("/NICK2IP " & Nick)
+Case 14 '/sameip nick
+    Call SendData("/SAMEIP " & Nick)
+Case 15
+    tmp = InputBox("¿Mapa?", "")
+    Call SendData("/CLEANMAP " & Trim(tmp))
+Case 16 '/att nick
+    Call SendData("/ATT " & Nick)
+Case 17
+    tmp = InputBox("Escriba la dirección IP a banear", "")
+    If MsgBox("¿Esta seguro que desea banear la IP """ & tmp & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/BANIP " & tmp)
     End If
-End Sub
-
-Private Sub cmdBOV_Click()
-    '/BOV
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharBank(Nick)
-End Sub
-
-Private Sub cmdCAOSMSG_Click()
-    '/CAOSMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba un Mensaje.", "Mensaje por consola LegionOscura")
-    If LenB(tStr) <> 0 Then _
-        Call WriteChaosLegionMessage(tStr)
-End Sub
-
-Private Sub cmdCARCEL_Click()
-    '/CARCEL
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Escriba el motivo de la pena.", "Carcel a " & Nick)
-                
-        If LenB(tStr) <> 0 Then
-            tStr = tStr & "@" & InputBox("Indique el tiempo de condena (entre 0 y 60 minutos).", "Carcel a " & Nick)
-            'We use the Parser to control the command format
-            Call ParseUserCommand("/CARCEL " & Nick & "@" & tStr)
-        End If
+Case 18 '/bov nick
+    Call SendData("/BOV " & Nick)
+Case 19
+    If MsgBox("¿Esta seguro que desea banear la IP del personaje """ & Nick & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/BANIP " & Nick)
     End If
-End Sub
-
-Private Sub cmdCC_Click()
-    '/CC
-    Call WriteSpawnListRequest
-End Sub
-
-Private Sub cmdCHATCOLOR_Click()
-    '/CHATCOLOR
-    Dim tStr As String
-    
-    tStr = InputBox("Defina el color (R G B). Deje en blanco para usar el default.", "Cambiar color del chat")
-    
-    Call ParseUserCommand("/CHATCOLOR " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdCI_Click()
-    '/CI
-    Dim tStr As String
-    
-    tStr = InputBox("Indique el número del objeto a crear.", "Crear Objeto")
-    If LenB(tStr) <> 0 Then _
-        If MsgBox("¿Seguro desea crear el objeto " & tStr & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call ParseUserCommand("/CI " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdCIUMSG_Click()
-    '/CIUMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba un Mensaje.", "Mensaje por consola Ciudadanos")
-    If LenB(tStr) <> 0 Then _
-        Call WriteCitizenMessage(tStr)
-End Sub
-
-Private Sub cmdCONDEN_Click()
-    '/CONDEN
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea volver criminal a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteTurnCriminal(Nick)
-End Sub
-
-Private Sub cmdCT_Click()
-    '/CT
-    Dim tStr As String
-    
-    tStr = InputBox("Indique la posición donde lleva el portal (MAPA X Y).", "Crear Portal")
-    If LenB(tStr) <> 0 Then _
-        Call ParseUserCommand("/CT " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdDEST_Click()
-    '/DEST
-    If MsgBox("¿Seguro desea destruir el objeto sobre el que esta parado?", vbYesNo, "Atencion!") = vbYes Then _
-        Call WriteDestroyItems
-End Sub
-
-Private Sub cmdDONDE_Click()
-    '/DONDE
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteWhere(Nick)
-End Sub
-
-Private Sub cmdDT_Click()
-    'DT
-    If MsgBox("¿Seguro desea destruir el portal?", vbYesNo, "Atencion!") = vbYes Then _
-        Call WriteTeleportDestroy
-End Sub
-
-Private Sub cmdECHAR_Click()
-    '/ECHAR
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteKick(Nick)
-End Sub
-
-Private Sub cmdEJECUTAR_Click()
-    '/EJECUTAR
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea ejecutar a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteExecute(Nick)
-End Sub
-
-Private Sub cmdESTUPIDO_Click()
-    '/ESTUPIDO
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteMakeDumb(Nick)
-End Sub
-
-Private Sub cmdGMSG_Click()
-    '/GMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el mensaje.", "Mensaje por consola de GM")
-    If LenB(tStr) <> 0 Then _
-        Call WriteGMMessage(tStr)
-End Sub
-
-Private Sub cmdHORA_Click()
-    '/HORA
-    Call Protocol.WriteServerTime
-End Sub
-
-Private Sub cmdIGNORADO_Click()
-    '/IGNORADO
-    Call WriteIgnored
-End Sub
-
-Private Sub cmdINFO_Click()
-    '/INFO
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharInfo(Nick)
-End Sub
-
-Private Sub cmdINV_Click()
-    '/INV
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharInventory(Nick)
-End Sub
-
-Private Sub cmdINVISIBLE_Click()
-    '/INVISIBLE
-    Call WriteInvisible
-End Sub
-
-Private Sub cmdIP2NICK_Click()
-    '/IP2NICK
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba la ip.", "IP to Nick")
-    If LenB(tStr) <> 0 Then _
-        Call ParseUserCommand("/IP2NICK " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdIRA_Click()
-    '/IRA
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteGoToChar(Nick)
-End Sub
-
-Private Sub cmdIRCERCA_Click()
-    '/IRCERCA
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteGoNearby(Nick)
-End Sub
-
-Private Sub cmdKICKCONSE_Click()
-    'KICKCONSE
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea destituir a " & Nick & " de su cargo de consejero?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteCouncilKick(Nick)
-End Sub
-
-Private Sub cmdLASTEMAIL_Click()
-    '/LASTEMAIL
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharMail(Nick)
-End Sub
-
-Private Sub cmdLASTIP_Click()
-    '/LASTIP
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteLastIP(Nick)
-End Sub
-
-Private Sub cmdLIMPIAR_Click()
-    '/LIMPIAR
-    Call WriteCleanWorld
-End Sub
-
-Private Sub cmdMASSDEST_Click()
-    '/MASSDEST
-    If MsgBox("¿Seguro desea destruir todos los items del mapa?", vbYesNo, "Atencion!") = vbYes Then _
-        Call WriteDestroyAllItemsInArea
-End Sub
-
-Private Sub cmdMIEMBROSCLAN_Click()
-    '/MIEMBROSCLAN
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el nombre del clan.", "Lista de miembros del clan")
-    If LenB(tStr) <> 0 Then _
-        Call WriteGuildMemberList(tStr)
-End Sub
-
-Private Sub cmdMOTDCAMBIA_Click()
-    '/MOTDCAMBIA
-    Call WriteChangeMOTD
-End Sub
-
-Private Sub cmdNAVE_Click()
-    '/NAVE
-    Call WriteNavigateToggle
-End Sub
-
-Private Sub cmdNENE_Click()
-    '/NENE
-    Dim tStr As String
-    
-    tStr = InputBox("Indique el mapa.", "Número de NPCs enemigos.")
-    If LenB(tStr) <> 0 Then _
-        Call ParseUserCommand("/NENE " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub cmdNICK2IP_Click()
-    '/NICK2IP
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteNickToIP(Nick)
-End Sub
-
-Private Sub cmdNOCAOS_Click()
-    '/NOCAOS
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea expulsar a " & Nick & " de la legión oscura?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteChaosLegionKick(Nick)
-End Sub
-
-Private Sub cmdNOESTUPIDO_Click()
-    '/NOESTUPIDO
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteMakeDumbNoMore(Nick)
-End Sub
-
-Private Sub cmdNOREAL_Click()
-    '/NOREAL
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea expulsar a " & Nick & " de la armada real?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteRoyalArmyKick(Nick)
-End Sub
-
-Private Sub cmdOCULTANDO_Click()
-    '/OCULTANDO
-    Call WriteHiding
-End Sub
-
-Private Sub cmdONLINECAOS_Click()
-    '/ONLINECAOS
-    Call WriteOnlineChaosLegion
-End Sub
-
-Private Sub cmdONLINEGM_Click()
-    '/ONLINEGM
-    Call WriteOnlineGM
-End Sub
-
-Private Sub cmdONLINEMAP_Click()
-    '/ONLINEMAP
-    Call WriteOnlineMap(UserMap)
-End Sub
-
-Private Sub cmdONLINEREAL_Click()
-    '/ONLINEREAL
-    Call WriteOnlineRoyalArmy
-End Sub
-
-Private Sub cmdPENAS_Click()
-    '/PENAS
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WritePunishments(Nick)
-End Sub
-
-Private Sub cmdPERDON_Click()
-    '/PERDON
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteForgive(Nick)
-End Sub
-
-Private Sub cmdPISO_Click()
-    '/PISO
-    Call WriteItemsInTheFloor
-End Sub
-
-Private Sub cmdRAJAR_Click()
-    '/RAJAR
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea resetear la facción de " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteResetFactions(Nick)
-End Sub
-
-Private Sub cmdRAJARCLAN_Click()
-    '/RAJARCLAN
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea expulsar a " & Nick & " de su clan?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteRemoveCharFromGuild(Nick)
-End Sub
-
-Private Sub cmdREALMSG_Click()
-    '/REALMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba un Mensaje.", "Mensaje por consola ArmadaReal")
-    If LenB(tStr) <> 0 Then _
-        Call WriteRoyalArmyMessage(tStr)
-End Sub
-
-Private Sub cmdREM_Click()
-    '/REM
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el comentario.", "Comentario en el logGM")
-    If LenB(tStr) <> 0 Then _
-        Call WriteComment(tStr)
-End Sub
-
-Private Sub cmdREVIVIR_Click()
-    '/REVIVIR
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteReviveChar(Nick)
-End Sub
-
-Private Sub cmdRMSG_Click()
-    '/RMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el mensaje.", "Mensaje por consola de RoleMaster")
-    If LenB(tStr) <> 0 Then _
-        Call WriteServerMessage(tStr)
-End Sub
-
-Private Sub cmdSETDESC_Click()
-    '/SETDESC
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba una DESC.", "Set Description")
-    If LenB(tStr) <> 0 Then _
-        Call WriteSetCharDescription(tStr)
-End Sub
-
-Private Sub cmdSHOW_SOS_Click()
-    '/SHOW SOS
-    Call WriteSOSShowList
-End Sub
-
-Private Sub cmdSHOWCMSG_Click()
-    '/SHOWCMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el nombre del clan que desea escuchar.", "Escuchar los mensajes del clan")
-    If LenB(tStr) <> 0 Then _
-        Call WriteShowGuildMessages(tStr)
-End Sub
-
-Private Sub cmdSHOWNAME_Click()
-    '/SHOWNAME
-    Call WriteShowName
-End Sub
-
-Private Sub cmdSILENCIAR_Click()
-    '/SILENCIAR
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteSilence(Nick)
-End Sub
-
-Private Sub cmdSKILLS_Click()
-    '/SKILLS
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharSkills(Nick)
-End Sub
-
-Private Sub cmdSMSG_Click()
-    '/SMSG
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el mensaje.", "Mensaje de sistema")
-    If LenB(tStr) <> 0 Then _
-        Call WriteSystemMessage(tStr)
-End Sub
-
-Private Sub cmdSTAT_Click()
-    '/STAT
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteRequestCharStats(Nick)
-End Sub
-
-Private Sub cmdSUM_Click()
-    '/SUM
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        Call WriteSummonChar(Nick)
-End Sub
-
-Private Sub cmdTALKAS_Click()
-    '/TALKAS
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba un Mensaje.", "Hablar por NPC")
-    If LenB(tStr) <> 0 Then _
-        Call WriteTalkAsNPC(tStr)
-End Sub
-
-Private Sub cmdTELEP_Click()
-    '/TELEP
-    Dim tStr As String
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then
-        tStr = InputBox("Indique la posición (MAPA X Y).", "Transportar a " & Nick)
-        If LenB(tStr) <> 0 Then _
-            Call ParseUserCommand("/TELEP " & Nick & " " & tStr) 'We use the Parser to control the command format
+Case 20 '/infofami nick
+    Call SendData("/INFOFAMI " & Nick)
+Case 21 '/revivir nick
+    Call SendData("/REVIVIR " & Nick)
+Case 22
+    Call SendData("/HMR " & Nick)
+Case 23
+    Call SendData("/TRABAJANDO")
+Case 24
+    Call SendData("/ENGRUPO")
+Case 25
+    Call SendData("/BANIPLIST")
+Case 26
+    Call SendData("/BLOQ")
+Case 27
+    Call SendData("/APAGAR")
+Case 28
+    Call SendData("/GRABAR")
+Case 29
+    Call SendData("/DOBACKUP")
+Case 30
+    Call SendData("/ONLINEMAP")
+Case 31
+    Call SendData("/LLUVIA")
+Case 32
+    Call SendData("/NOCHE")
+Case 33
+    Call SendData("/CurrentUser.Pausa")
+Case 34
+    Call SendData("/LIMPIAR")
+Case 35 '/carcel minutos nick
+    tmp = InputBox("¿Minutos a silenciar? (hasta 60)", "")
+    If MsgBox("¿Esta seguro que desea silenciar al personaje """ & Nick & """?", vbYesNo + vbQuestion) = vbYes Then
+        Call SendData("/SILENCIO " & tmp & " " & Nick)
     End If
-End Sub
+Case 36
+    Call SendData("/AMANECER")
+Case 37
+    Call SendData("/DIA")
+Case 38
+    Call SendData("/TARDE")
+Case 39
+    Call SendData("/NOCHE")
+End Select
 
-Private Sub cmdTRABAJANDO_Click()
-    '/TRABAJANDO
-    Call WriteWorking
-End Sub
+Nick = ""
 
-Private Sub cmdUNBAN_Click()
-    '/UNBAN
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea unbanear a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteUnbanChar(Nick)
-End Sub
-
-Private Sub cmdUNBANACC_Click()
-    '/UNBANACC
-    Dim Nick As String
-
-    Nick = cboListaUsus.Text
-    
-    If LenB(Nick) <> 0 Then _
-        If MsgBox("¿Seguro desea unbanear de cuenta a " & Nick & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call WriteUnbanACC(Nick)
-End Sub
-
-Private Sub cmdUNBANIP_Click()
-    '/UNBANIP
-    Dim tStr As String
-    
-    tStr = InputBox("Escriba el ip.", "Unbanear IP")
-    If LenB(tStr) <> 0 Then _
-        If MsgBox("¿Seguro desea unbanear la ip " & tStr & "?", vbYesNo, "Atencion!") = vbYes Then _
-            Call ParseUserCommand("/UNBANIP " & tStr) 'We use the Parser to control the command format
-End Sub
-
-Private Sub Form_Load()
-    Call showTab(1)
-    Call cmdActualiza_Click
 End Sub
 
 Private Sub cmdActualiza_Click()
-    Call WriteRequestUserList
-    Call FlushBuffer
+Call SendData("LISTUSU")
+
 End Sub
 
 Private Sub cmdCerrar_Click()
-    Unload Me
+Call MensajeBorrarTodos
+Me.Visible = False
+List1.Clear
 End Sub
 
+Private Sub cmdRepetir_Click()
+If LastStr <> "" Then Call SendData(LastStr)
+End Sub
+
+Private Sub cmdTarget_Click()
+'Call AddtoRichTextBox(frmMain.RecTxt, "Haz click sobre el personaje...", 100, 100, 120, 0, 0)
+'frmMain.MousePointer = 2
+'frmMain.PanelSelect = True
+End Sub
+
+Private Sub cmdOnline_Click()
+Call SendData("/ONLINE")
+With List1
+    .Visible = True
+End With
+
+
+mnuIra.Enabled = True
+mnuTraer.Enabled = True
+
+End Sub
+
+
+
+Private Sub Command1_Click()
+If List1.listIndex < 0 Then Exit Sub
+
+txtResp.Visible = True
+txtResp.Text = ""
+cmd1.Visible = True
+End Sub
+
+Private Sub Form_Load()
+List1.Clear
+Label2.Caption = frmMain.online.Caption
+Call cmdActualiza_Click
+Label1.Caption = ""
+txtResp.Text = ""
+
+txtResp.Visible = False
+
+End Sub
+Public Sub CrearGMmSg(Nick As String, msg As String)
+If List1.ListCount < MAX_GM_MSG Then
+        List1.AddItem Nick & "-" & List1.ListCount
+        MisMSG(List1.ListCount - 1) = msg
+        Apunt(List1.ListCount - 1) = List1.ListCount - 1
+End If
+End Sub
 Private Sub Form_QueryUnload(Cancel As Integer, UnloadMode As Integer)
-    Unload Me
+Call MensajeBorrarTodos
+Me.Visible = False
+List1.Clear
 End Sub
 
-Private Sub TabStrip_Click()
-    Call showTab(TabStrip.SelectedItem.Index)
+
+
+Private Sub mnuAccion_Click(Index As Integer)
+Call cmdAccion_Click(Index)
 End Sub
 
-Private Sub showTab(TabId As Byte)
-    Dim i As Byte
-    
-    For i = 1 To Frame.UBound
-        Frame(i).Visible = (i = TabId)
-    Next i
-    
-    With Frame(TabId)
-        frmPanelGm.Height = .Height + 1280
-        TabStrip.Height = .Height + 480
-        cmdCerrar.Top = .Height + 465
-    End With
+Private Sub mnuAdmin_Click(Index As Integer)
+Call cmdAccion_Click(Index)
 End Sub
+
+Private Sub mnuAmbiente_Click(Index As Integer)
+Call cmdAccion_Click(Index)
+End Sub
+
+Private Sub mnuBan_Click(Index As Integer)
+Call cmdAccion_Click(Index)
+End Sub
+
+Private Sub mnuCarcel_Click(Index As Integer)
+
+If Index = 60 Then
+    Call cmdAccion_Click(11)
+    Exit Sub
+End If
+
+Call SendData("/CARCEL " & Index & " " & cboListaUsus.Text)
+
+End Sub
+
+Private Sub mnuSilencio_Click(Index As Integer)
+
+If Index = 60 Then
+    Call cmdAccion_Click(35)
+    Exit Sub
+End If
+
+Call SendData("/SILENCIO " & Index & " " & cboListaUsus.Text)
+
+End Sub
+
+Private Sub mnuCompressChars_Click()
+    Call SendData("/ZIPCHARS")
+End Sub
+
+Private Sub mnuHerramientas_Click(Index As Integer)
+Call cmdAccion_Click(Index)
+End Sub
+
+Public Sub MensajePoner(ByVal Nick As String, ByVal Mensaje As String)
+On Error Resume Next
+lista.Add Mensaje, Nick
+End Sub
+
+Public Sub MensajeBorrarTodos()
+Do While lista.Count > 0
+    Call lista.Remove(lista.Count)
+Loop
+End Sub
+
+Private Sub list1_Click()
+On Error Resume Next
+Dim ind As Integer
+ind = Val(ReadField(2, List1.List(List1.listIndex), Asc(";")))
+Label1.Caption = "Usuario: " & List1.Text
+End Sub
+
+
+Private Sub List1_MouseDown(Button As Integer, Shift As Integer, X As Single, Y As Single)
+
+If Button = vbRightButton Then
+    PopupMenu mnuUsuario
+End If
+
+End Sub
+
+
+Private Sub mnuBorrar_Click()
+
+If List1.Visible Then
+    If List1.listIndex < 0 Then Exit Sub
+    SendData ("SOSDON" & Nick)
+    List1.RemoveItem List1.listIndex
+End If
+
+End Sub
+
+Private Sub mnuIP_Click(Index As Integer)
+Call cmdAccion_Click(Index)
+End Sub
+
+Private Sub mnuIRa_Click()
+
+If List1.Visible Then
+    SendData ("/IRA " & Nick)
+End If
+
+End Sub
+
+Private Sub mnuInvalida_Click()
+
+If List1.Visible Then
+    If List1.listIndex < 0 Then Exit Sub
+    SendData ("SOSINV" & Nick)
+    List1.RemoveItem List1.listIndex
+End If
+
+End Sub
+
+Private Sub mnuManual_Click()
+
+If List1.Visible Then
+    If List1.listIndex < 0 Then Exit Sub
+    SendData ("SOSMAN" & Nick)
+    List1.RemoveItem List1.listIndex
+End If
+
+End Sub
+Private Sub mnuReload_Click(Index As Integer)
+
+Select Case Index
+    Case 1 'Reload objetos
+        Call SendData("/RELOADOBJ")
+    Case 2 'Reload server.ini
+        Call SendData("/RELOADSINI")
+    Case 3 'Reload mapas
+        MsgBox "Deshabilitado"
+    Case 4 'Reload hechizos
+        Call SendData("/RELOADHECHIZOS")
+    Case 5 'Reload motd
+        Call SendData("/RELOADMOTD")
+    Case 6 'Reload npcs
+        Call SendData("/RELOADNPCS")
+    Case 7 'Reload sockets
+        If MsgBox("¿Estas seguro de que deseas reiniciar?", vbYesNo, "Advertencia") = vbYes Then _
+            Call SendData("/REINICIAR")
+    Case 9 'Reload Guilds
+        Call SendData("/RELOADGUILD")
+    Case 10 'Reload otros
+        Call SendData("/BANIPRELOAD")
+End Select
+
+End Sub
+
+Private Sub mnuStartUp_Click()
+
+Dim TempApp As String
+TempApp = InputBox("Ingrese el nombre del ejecutable que desea iniciar en el servidor.", "")
+Call SendData("/INICIAR " & TempApp)
+
+End Sub
+
+Private Sub mnuKill_Click()
+
+Dim TempApp As String
+TempApp = InputBox("Ingrese el nombre del proceso que desea matar en el servidor.", "")
+Call SendData("/KILLAPP " & TempApp)
+
+End Sub
+
+Private Sub mnutraer_Click()
+
+If List1.Visible Then
+SendData ("/SUM " & Nick)
+Else
+SendData ("/SUM " & Nick)
+End If
+End Sub
+
+Private Sub list1_dblClick()
+On Error Resume Next
+
+If List1.Visible Then
+    SendData ("/IRA " & Nick)
+    SendData ("SOSDON" & Nick)
+Else
+    SendData ("SOSDON" & Nick)
+End If
+
+List1.Clear
+Me.Visible = False
+
+End Sub
+
+
